@@ -30,10 +30,10 @@
   },
   "home": {
     "Welcome to Admin Hotel!": "Welcome to Admin Hotel!",
-    "Brand new models": "Brand new models",
-    "Hot prices": "Hot prices",
+    "Best rooms": "Best rooms",
+    "Cheapest rooms": "Cheapest rooms",
     "You may also like": "You may also like",
-    "Shop by category": "Shop by category"
+    "Book room by class": "Book room by class"
   },
   "room": {
     "Add to book list": "Add to book list",
@@ -45,7 +45,8 @@
     "Price": "Price",
     "Available": "Available",
     "Yes": "Yes",
-    "No": "No"
+    "No": "No",
+    "night": "night"
   },
   "roomPage": {
     "rooms": "Rooms"
@@ -69,7 +70,8 @@
     "Cell": "Cell"
   },
   "roomTypes": {
-    "Standart": "Standart",
+    "Class": "Class",
+    "Standard": "Standard",
     "Lux": "Lux",
     "Premium": "Premium",
     "rooms": "rooms"

@@ -30,22 +30,23 @@
   },
   "home": {
     "Welcome to Admin Hotel!": "Вітаємо у готелі Admin!",
-    "Brand new models": "Нові моделі",
-    "Hot prices": "Гарячі ціни",
+    "Best rooms": "Найкращі номери",
+    "Cheapest rooms": "Найдешевші номери",
     "You may also like": "Вам також може сподобатися",
-    "Shop by category": "Покупки за категоріями"
+    "Book room by class": "Бронюй номер за класом"
   },
   "room": {
     "Add to book list": "Додати в список бронювань",
     "Checkout": "Забронювати",
     "Back": "Назад",
     "Class": "Клас",
-    "Capacity": "Capacity",
+    "Capacity": "Кількість місць",
     "Floor": "Поверх",
     "Price": "Вартість",
     "Available": "Вільний",
     "Yes": "Так",
-    "No": "Ні"
+    "No": "Ні",
+    "night": "доба"
   },
   "roomPage": {
     "rooms": "Номери"
@@ -69,7 +70,8 @@
     "Cell": "Акумулятор"
   },
   "roomTypes": {
-    "Standart": "Стандарт",
+    "Class": "Клас",
+    "Standard": "Стандарт",
     "Lux": "Люкс",
     "Premium": "Преміум",
     "rooms": "номерів"

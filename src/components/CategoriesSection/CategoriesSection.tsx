@@ -9,6 +9,9 @@ import { getRoomTypes, getRooms } from 'api';
 import { RoomType } from 'types/RoomType';
 import { toast } from 'react-toastify';
 import { Room } from 'types/Room';
+import Standard from './img/Standard.jpg';
+import Lux from './img/Lux.jpg';
+import Premium from './img/Premium.jpg';
 
 export const CategoriesSection: FC = () => {
   const [rooms, setRooms] = useState<Room[]>([]);
@@ -53,25 +56,25 @@ export const CategoriesSection: FC = () => {
 
   const types = [
     {
-      name: t('roomTypes.Standart'),
+      name: t('roomTypes.Standard'),
       totalQuantity: standarts.length,
-      image: './img/Standart.jpg',
+      image: Standard,
       backgroundColor: 'violet-background',
-      url: '/phones',
+      url: '/rooms/standard',
     },
     {
       name: t('roomTypes.Lux'),
       totalQuantity: luxes.length,
-      image: './img/Lux.jpg',
+      image: Lux,
       backgroundColor: 'grey-background',
-      url: '/tablets',
+      url: '/rooms/lux',
     },
     {
       name: t('roomTypes.Premium'),
       totalQuantity: premiums.length,
-      image: './img/Premium.jpg',
+      image: Premium,
       backgroundColor: 'burgundy-background',
-      url: '/accessories',
+      url: '/rooms/premium',
     },
   ];
 
@@ -84,7 +87,7 @@ export const CategoriesSection: FC = () => {
         initial={!inView ? 'visible' : 'initial'}
         animate={inView ? 'visible' : 'initial'}
       >
-        {t('home.Shop by category')}
+        {t('home.Book room by class')}
       </motion.h1>
 
       <div className={styles.category__container}>

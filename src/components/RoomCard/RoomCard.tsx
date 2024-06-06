@@ -103,7 +103,6 @@ export const RoomCard: FC<Props> = ({ room }) => {
   const [ref, inView] = useInViewOnce({ threshold: 0 });
 
   const image_url = `${API_URL}/${room.images[0]}`;
-  console.log(image_url);
 
   return (
     <motion.div
@@ -126,8 +125,10 @@ export const RoomCard: FC<Props> = ({ room }) => {
             <div className={`${styles.room__details} ${styles.details}`}>
               <h3 className={styles.details__name}>{roomNumber}</h3>
 
-              <div className={`${styles.details__price} ${styles.price}`}>
-                <div className={styles.price__discount}>${room.pricePerNight}</div>
+              <div className={`${styles.details__price} ${styles.price}`} style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <div className={styles.price__discount}>{`$${room.pricePerNight}`}</div>
+
+                <div>{`/ ${t('room.night')}`}</div>
               </div>
             </div>
 
@@ -138,9 +139,9 @@ export const RoomCard: FC<Props> = ({ room }) => {
                 className={`${styles.description__container} ${styles.info}`}
               >
                 <span className={styles.info__title}>
-                  {t('room.Floor')}
+                  {t('roomTypes.Class')}
                 </span>
-                <span className={styles.info__value}>{room.floor}</span>
+                <span className={styles.info__value}>{t(`roomTypes.${roomTypeName}`)}</span>
               </div>
 
               <div className={styles.description__container}>

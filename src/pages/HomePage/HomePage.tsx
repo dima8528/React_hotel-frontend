@@ -52,7 +52,7 @@ export const HomePage = () => {
       <Slider />
 
       <ProductsSlider
-        title={t('home.Brand new models')}
+        title={t('home.Best rooms')}
         rooms={bestRooms}
         loading={isLoading}
       />
@@ -60,7 +60,7 @@ export const HomePage = () => {
       <CategoriesSection />
 
       <ProductsSlider
-        title={t('home.Hot prices')}
+        title={t('home.Cheapest rooms')}
         rooms={cheapestRooms}
         loading={isLoading}
       />
