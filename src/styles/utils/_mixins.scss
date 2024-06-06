@@ -1,0 +1,56 @@
+@mixin on-mobile {
+  @media screen and (max-width: 639px) {
+    @content;
+  }
+}
+
+@mixin on-tablet {
+  @media screen and (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin pageGrid {
+  --columns: 1;
+
+  display: grid;
+  row-gap: 40px;
+  column-gap: 16px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    --columns: 2;
+  }
+
+  @include on-desktop {
+    --columns: 4;
+  }
+}
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin page-grid {
+  --columns: 4;
+
+  display: grid;
+  column-gap: 16px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    --columns: 12;
+  }
+
+  @include on-desktop {
+    --columns: 24;
+  }
+}
+

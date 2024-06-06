@@ -1,0 +1,104 @@
+{
+  "header": {
+    "home": "HOME",
+    "rooms": "ROOMS",
+    "cart": "Cart"
+  },
+  "footer": {
+    "Back to top": "Back to top",
+    "Rights": "Rights",
+    "Contacts": "Contacts"
+  },
+  "search": {
+    "Search": "Search",
+    "There are no products matching the query!": "There are no products matching the query!",
+    "Search results": "Search results",
+    "Try again": "Try again"
+  },
+  "cart": {
+    "Cart": "Cart",
+    "Your cart is empty": "Your cart is empty",
+    "Сontinue shopping": "Сontinue shopping",
+    "Total for": "Total for",
+    "Checkout": "Checkout",
+    "item": "item",
+    "items": "items",
+    "Back": "Back",
+    "Checkout is not implemented yet. Do you want to clear the Cart?": "Checkout is not implemented yet. Do you want to clear the Cart?",
+    "Cancel": "Cancel",
+    "Confirm": "Confirm"
+  },
+  "home": {
+    "Welcome to Admin Hotel!": "Welcome to Admin Hotel!",
+    "Brand new models": "Brand new models",
+    "Hot prices": "Hot prices",
+    "You may also like": "You may also like",
+    "Shop by category": "Shop by category"
+  },
+  "room": {
+    "Add to book list": "Add to book list",
+    "Checkout": "Checkout",
+    "Back": "Back",
+    "Class": "Class",
+    "Capacity": "Capacity",
+    "Floor": "Floor",
+    "Price": "Price",
+    "Available": "Available",
+    "Yes": "Yes",
+    "No": "No"
+  },
+  "roomPage": {
+    "rooms": "Rooms"
+  },
+  "productPage": {
+    "Add to cart": "Add to cart",
+    "Added to cart": "Added to cart",
+    "Back": "Back",
+    "Screen": "Screen",
+    "Processor": "Processor",
+    "RAM": "RAM",
+    "Resolution": "Resolution",
+    "Description": "Description",
+    "Available colors": "Available colors",
+    "Select capacity": "Select capacity",
+    "About": "About",
+    "Tech specs": "Tech specs",
+    "Built in memory": "Built in memory",
+    "Camera": "Camera",
+    "Zoom": "Zoom",
+    "Cell": "Cell"
+  },
+  "roomTypes": {
+    "Standart": "Standart",
+    "Lux": "Lux",
+    "Premium": "Premium",
+    "rooms": "rooms"
+  },
+  "favourites": {
+    "Favourites": "Favourites",
+    "items": "items",
+    "There are no items yet": "There are no items yet",
+    "GO HOME": "GO HOME"
+  },
+  "filters": {
+    "Sort by": "Sort by",
+    "Items on page": "Items on page",
+    "Best": "Best",
+    "Cheapest": "Cheapest",
+    "All": "All"
+  },
+  "ProductButtonType": {
+    "Add to cart": "Add to cart",
+    "Added to cart": "Added to cart",
+    "Checkout": "Checkout"
+  },
+  "404": {
+    "Oops, page not found!": "Oops, page not found!",
+    "Go to homepage": "Go to homepage"
+  },
+  "buttons": {
+    "Add to cart": "Add to cart",
+    "Added to cart": "Added to cart",
+    "Checkout": "Checkout"
+  }
+}

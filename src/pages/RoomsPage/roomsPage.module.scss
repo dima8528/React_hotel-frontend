@@ -1,0 +1,32 @@
+@import 'styles/utils/mixins';
+@import 'styles/utils/variables';
+
+.container {
+  margin: 24px 17px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include on-tablet {
+    margin: 24px 24px;
+  }
+
+  @include on-desktop {
+    margin: 24px 32px;
+  }
+
+  &__title {
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 41px;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+
+    transition: $effectDuration;
+
+    @include on-tablet {
+      font-size: 48px;
+      line-height: 56px;
+    }
+  }
+}

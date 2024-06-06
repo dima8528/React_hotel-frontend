@@ -1,0 +1,68 @@
+@import 'styles/utils/variables';
+@import 'styles/utils/typography';
+@import 'styles/utils/mixins';
+
+.breadcrumb__style {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+
+  @include on-tablet {
+    margin-bottom: 40px;
+  }
+}
+.breadcrumbs {
+  display: flex;
+  font-family: $Mont;
+  align-items: center;
+  text-decoration: none;
+  color: var(--primary-color);
+  margin-right: 8px;
+
+  transition: $effectDuration;
+
+  &__disabled {
+    display: flex;
+    align-items: center;
+    color: var(--secondary-color);
+
+    transition: $effectDuration;
+
+    &::before {
+      content: '';
+      width: 19px;
+      height: 19px;
+      margin-right: 8px;
+      aspect-ratio: 1;
+
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url('../../img/icons/arrow_right.svg');
+    }
+  }
+
+  &::before {
+    content: '';
+    width: 19px;
+    height: 19px;
+    margin-right: 8px;
+    aspect-ratio: 1;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../../img/icons/arrow_right.svg');
+  }
+}
+
+.home__icon {
+  height: 16px;
+  width: 16px;
+  margin-right: 8px;
+  aspect-ratio: 1;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('../../img/icons/Home.svg');
+  filter: brightness(var(--theme-change-brightness));
+  transition: $effectDuration;
+}

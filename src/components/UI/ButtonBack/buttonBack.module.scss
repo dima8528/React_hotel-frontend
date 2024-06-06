@@ -1,0 +1,41 @@
+@import 'styles/utils/variables';
+@import 'styles/utils/typography';
+@import 'styles/utils/mixins';
+
+.button {
+  display: flex;
+  width: fit-content;
+  margin-bottom: 24px;
+
+  font-family: $Mont;
+  align-items: center;
+
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--product-back);
+
+  transition: $effectDuration;
+
+  @include on-tablet {
+    margin-bottom: 16px;
+  }
+
+  &:hover {
+    color: var(--product-back-hover);
+
+    transition: $effectDuration;
+  }
+
+  &::before {
+    content: '';
+    width: 19px;
+    height: 19px;
+    margin-right: 4px;
+    filter: brightness(var(--theme-change-brightness));
+    transition: $effectDuration;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../../../img/icons/arrow_left.svg');
+  }
+}

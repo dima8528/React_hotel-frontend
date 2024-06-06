@@ -1,0 +1,138 @@
+@import 'styles/utils/mixins';
+@import 'styles/utils/variables';
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  margin-bottom: 56px;
+
+  @include on-tablet {
+    margin-bottom: 64px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 80px;
+  }
+
+  &__slider {
+    max-width: 100%;
+    display: flex;
+    gap: 16px;
+
+    &-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      cursor: pointer;
+      border-radius: 48px;
+      max-height: 100%;
+      width: 32px;
+      border: 1px solid var(--icons-color);
+      background-color: var(--slider-bg-color);
+
+      transition-duration: $effectDuration;
+
+      @include on-mobile {
+        display: none;
+      }
+
+      &:hover {
+        background-color: var(--slider-bg-hover-color);
+        transition-duration: $effectDuration;
+      }
+    }
+    &-container {
+      height: 100%;
+      width: 100%;
+      max-width: 1040px;
+      overflow: hidden;
+    }
+
+    &-list {
+      height: 100%;
+      width: 300%;
+      display: flex;
+      gap: 1px;
+      transition-duration: 1s;
+      list-style-type: none;
+      touch-action: pan-y;
+    }
+
+    &-item {
+      height: 100%;
+      width: 33.33%;
+    }
+
+    &-image {
+      width: 100%;
+      object-fit: cover;
+      object-position: center center;
+      border-radius: 10px;
+      height: 440px;
+
+      @include on-mobile {
+        border-radius: 0;
+        height: 320px;
+      }
+
+      @include on-tablet {
+        height: 189px;
+      }
+
+      @include on-desktop {
+        height: 400px;
+      }
+    }
+  }
+
+  &__dots {
+    cursor: pointer;
+    width: 80px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+
+    &-item {
+      width: 14px;
+      height: 5px;
+      background-color: var(--slider-dots-color);
+      opacity: 0.4;
+      border: 1px solid transparent;
+      transition: $effectDuration;
+
+      &:hover {
+        color: #0f0f11;
+        box-shadow: 0 3px 13px 0 rgba(#0f0f11, 0.26);
+        border: 1px solid #0f0f11;
+      }
+    }
+  }
+}
+
+.banner-active {
+  opacity: 1;
+}
+
+.icon-left {
+  width: 5.33px;
+  height: 9.33px;
+  background-image: url('./img/arrows_left.svg');
+  filter: brightness(var(--theme-change-brightness));
+  transition: $effectDuration;
+}
+
+.icon-right {
+  width: 5.33px;
+  height: 9.33px;
+  background-image: url('./img/arrows_right.svg');
+  filter: brightness(var(--theme-change-brightness));
+  transition: $effectDuration;
+}
+
+

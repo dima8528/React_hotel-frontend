@@ -1,0 +1,44 @@
+@import '../../styles/utils/mixins';
+
+.skeletonSlider {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+
+    &__container {
+      width: 100%;
+    }
+
+    .image {
+      width: 100%;
+      height: 400px;
+    }
+
+    @include on-tablet {
+      padding: 0 20px;
+
+      .image {
+        height: 189px;
+      }
+    }
+
+    @include on-desktop {
+      padding: 0 24px;
+
+      .image {
+        height: 350px;
+      }
+    }
+
+    @include on-mobile {
+      padding: 0 8px;
+
+      .image {
+        height: 326px;
+      }
+    }
+  }

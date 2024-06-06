@@ -1,0 +1,99 @@
+{
+  "header": {
+    "home": "ГОЛОВНА",
+    "rooms": "НОМЕРИ",
+    "cart": "Кошик"
+  },
+  "footer": {
+    "Back to top": "Повернутися до початку",
+    "Rights": "Права",
+    "Contacts": "Контакти"
+  },
+  "search": {
+    "Search": "Пошук",
+    "There are no products matching the query!": "Немає товарів, які відповідають запиту!",
+    "Search results": "Результати пошуку",
+    "Try again": "Спробуйте ще раз"
+  },
+  "cart": {
+    "Cart": "Кошик",
+    "Your cart is empty": "Ваш кошик порожній",
+    "Сontinue shopping": "Продовжити покупки",
+    "Total for": "Загальна за",
+    "Checkout": "Оформити замовлення",
+    "item": "позицію",
+    "items": "позиції",
+    "Back": "Назад",
+    "Checkout is not implemented yet. Do you want to clear the Cart?": "Оформлення замовлення ще не реалізовано. Бажаєте очистити кошик?",
+    "Cancel": "Скасувати",
+    "Confirm": "Підтвердити"
+  },
+  "home": {
+    "Welcome to Admin Hotel!": "Вітаємо у готелі Admin!",
+    "Brand new models": "Нові моделі",
+    "Hot prices": "Гарячі ціни",
+    "You may also like": "Вам також може сподобатися",
+    "Shop by category": "Покупки за категоріями"
+  },
+  "room": {
+    "Add to book list": "Додати в список бронювань",
+    "Checkout": "Забронювати",
+    "Back": "Назад",
+    "Class": "Клас",
+    "Capacity": "Capacity",
+    "Floor": "Поверх",
+    "Price": "Вартість",
+    "Available": "Вільний",
+    "Yes": "Так",
+    "No": "Ні"
+  },
+  "roomPage": {
+    "rooms": "Номери"
+  },
+  "productPage": {
+    "Add to cart": "Додати до кошика",
+    "Added to cart": "Додано до кошика",
+    "Back": "Назад",
+    "Screen": "Екран",
+    "Processor": "Процесор",
+    "RAM": "Оперативна пам'ять",
+    "Resolution": "Роздільна здатність",
+    "Description": "Опис",
+    "Available colors": "Доступні кольори",
+    "Select capacity": "Оберіть значення",
+    "About": "Про товар",
+    "Tech specs": "Технічні характеристики",
+    "Built in memory": "Вбудована пам'ять",
+    "Camera": "Камера",
+    "Zoom": "Збільшення",
+    "Cell": "Акумулятор"
+  },
+  "roomTypes": {
+    "Standart": "Стандарт",
+    "Lux": "Люкс",
+    "Premium": "Преміум",
+    "rooms": "номерів"
+  },
+  "favourites": {
+    "Favourites": "Улюблені",
+    "items": "позицій",
+    "There are no items yet": "Ще немає товарів",
+    "GO HOME": "НА ГОЛОВНУ"
+  },
+  "filters": {
+    "Sort by": "Сортувати за",
+    "Items on page": "Товарів на сторінці",
+    "Best": "Найкращі",
+    "Cheapest": "Найдешевші",
+    "All": "Усі"
+  },
+  "404": {
+    "Oops, page not found!": "Ой, сторінки не знайдено!",
+    "Go to homepage": "На головну"
+  },
+  "buttons": {
+    "Add to cart": "Купити",
+    "Added to cart": "У кошику",
+    "Checkout": "Оформити замовлення"
+  }
+}

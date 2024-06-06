@@ -1,0 +1,61 @@
+@import 'styles/utils/variables';
+
+.rightsPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  padding-top: 60px;
+  height: 70vh;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.photo {
+  margin-right: 20px;
+}
+
+.userPhoto {
+  max-width: 200px;
+  height: auto;
+  transition: $effectDuration;
+}
+
+.photo img {
+  max-width: 200px;
+  height: auto;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.text {
+  box-sizing: border-box;
+  font-size: 1.4em;
+  padding: 20px;
+  color: var(--primary-color);
+  transition: $effectDuration;
+}
+
+@media (max-width: 600px) {
+  .rightsPage {
+    flex-direction: column;
+    height: auto;
+    padding-top: 80px;
+  }
+
+  .photo {
+    margin-bottom: 20px;
+    margin-right: 0;
+  }
+}
+
+.contacts {
+  color: var(--rigths-text-color);
+  transition: $effectDuration;
+}

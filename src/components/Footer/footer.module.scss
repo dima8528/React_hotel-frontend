@@ -1,0 +1,136 @@
+@import 'styles/utils/variables';
+@import 'styles/utils/mixins';
+@import 'styles/utils/typography';
+
+.footer {
+  display: flex;
+  width: 100%;
+  border-top: 1px solid var(--elements-color);
+  background-color: var(--main-bg-color);
+  transition: $effectDuration;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 16px;
+    gap: 32px;
+
+    @include on-mobile {
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    @include on-tablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__logo {
+    width: 89px;
+    height: 32px;
+
+    fill: var(--header-logo);
+    transition: $effectDuration;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    gap: 16px;
+
+    @include on-mobile {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    @include on-tablet {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &__item {
+    font-family: 'Mont', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 11px;
+    letter-spacing: 0.04em;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: var(--footer-link-color);
+    transition: $effectDuration;
+  }
+}
+
+.back-to-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: 32px;
+
+  &__content {
+    display: flex;
+    width: fit-content;
+    height: 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+  }
+
+  &__text {
+    font-family: 'Mont', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    color: var(--secondary-color);
+    transition: $effectDuration;
+  }
+
+  &__button {
+    position: relative;
+    display: flex;
+    height: 100%;
+    aspect-ratio: 1;
+    padding: 0;
+    border: 1px solid var(--icons-color);
+    transition: $effectDuration;
+    border-radius: 50%;
+  }
+
+  &__arrow {
+    position: relative;
+    right: 40px;
+
+    fill: var(--main-icons-color);
+    transition: $effectDuration;
+  }
+
+  @include on-mobile {
+    width: 100%;
+  }
+
+  @include on-tablet {
+    width: fit-content;
+  }
+}
+
+.back-to-top__button {
+  background-color: var(--card--bg-color);
+}

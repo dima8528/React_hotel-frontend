@@ -1,0 +1,68 @@
+@import 'styles/utils/_variables';
+
+.contactsPage {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  text-align: center;
+}
+
+.card {
+  width: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 400px;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.card img {
+  padding: 10px;
+  border-radius: 100%;
+  width: 250px;
+  height: auto;
+}
+
+.cardTitle {
+  font-size: 1.5em;
+  margin: 10px;
+  color: var(--primary-color);
+  transform: $effectDuration;
+}
+
+.cardText {
+  font-size: 1em;
+  margin: 10px;
+  color: #555;
+}
+
+.cardButton {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1em;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cardButton:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background-color: var(--card--bg-hover-color);
+  transition: $effectDuration;
+}

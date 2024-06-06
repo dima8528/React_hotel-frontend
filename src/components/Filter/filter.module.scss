@@ -1,0 +1,28 @@
+@import 'styles/utils/mixins';
+@import 'styles/utils/variables';
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+
+  @include on-tablet {
+    justify-content: start;
+    gap: 16px;
+  }
+
+  &__сontainer {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__description {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15.34px;
+
+    color: var(--secondary-color);
+    transition: $effectDuration;
+  }
+}

@@ -1,0 +1,123 @@
+@import 'styles/utils/variables';
+@import 'styles/utils/typography';
+@import 'styles/utils/mixins';
+
+.cartItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  margin-bottom: 16px;
+  gap: 16px;
+  padding: 16px;
+
+  height: auto;
+  border: 1px solid var(--cart-border-color);
+  background-color: var(--cart-bg-color);
+  transition: $effectDuration;
+
+  border-radius: 16px;
+  box-sizing: border-box;
+
+  transition: $effectDuration;
+
+  &:hover {
+    border: 1px solid var(--cart-border-color);
+    background-color: var(--card--bg-hover-color);
+    transition: $effectDuration;
+  }
+
+  @include on-tablet {
+    flex-direction: row;
+    gap: 24px;
+    padding: 24px;
+  }
+
+  @include on-desktop {
+    width: 752px;
+  }
+
+  &__column1 {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    @include on-tablet {
+      gap: 24px;
+    }
+  }
+
+  &__image {
+    flex-shrink: 0;
+    max-height: 80px;
+    padding: 7px;
+    width: 80px;
+  }
+
+  &__productImage {
+    max-height: 66px;
+    object-fit: contain;
+    width: 100%;
+    transition: all 0.5s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__description {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  &__name {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-color);
+
+    transition: $effectDuration;
+  }
+
+  &__column2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__button {
+    margin-right: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 96px;
+  }
+
+  &__count {
+    color: var(--primary-color);
+    transition: $effectDuration;
+  }
+
+  &__price {
+    width: 80px;
+    font-size: 22px;
+    line-height: 30.8px;
+    font-weight: 800;
+    color: var(--primary-color);
+    transition: $effectDuration;
+  }
+
+  &__close {
+    flex-shrink: 0;
+    height: 16px;
+    width: 16px;
+
+    background-image: url(../../img/icons/close.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    cursor: pointer;
+    transition: $effectDuration;
+  }
+}

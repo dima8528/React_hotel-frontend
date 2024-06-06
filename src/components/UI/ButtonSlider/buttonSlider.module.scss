@@ -1,0 +1,81 @@
+@import 'styles/utils/variables';
+@import 'styles/utils/typography';
+
+.button {
+  display: flex;
+  width: 32px;
+  height: 32px;
+
+  font-family: $Mont;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  text-decoration: none;
+
+  background-color: var(--slider-bg-hover-color);
+  transition: $effectDuration;
+  border-radius: 48px;
+
+  &.default {
+    border: 1px solid var(--icons-color);
+
+    transition: $effectDuration;
+  }
+
+  &:hover {
+    border: 1px solid var(--primary-color);
+
+    transition: $effectDuration;
+  }
+
+  &.disable {
+    border: 1px solid var(--elements-color);
+    background-color: var(--cart-bg-disable-color);
+    cursor: default;
+
+    transition: $effectDuration;
+  }
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &.arrowLeft {
+    background-image: url('../../../img/icons/arrow_left.svg');
+  }
+
+  &.arrowRight {
+    background-image: url('../../../img/icons/arrow_right.svg');
+    fill: red;
+  }
+
+  &.arrowLeft,
+  &.arrowRight {
+    filter: brightness(1);
+
+    &.disable {
+      filter: brightness(0);
+    }
+  }
+
+  &.plus {
+    background-image: url('../../../img/icons/plus.svg');
+  }
+
+  &.minus {
+    background-image: url('../../../img/icons/minus.svg');
+  }
+
+  &.plus,
+  &.minus {
+    filter: brightness(4);
+
+    &.disable {
+      filter: brightness(0);
+    }
+  }
+}

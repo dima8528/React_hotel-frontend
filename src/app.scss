@@ -1,0 +1,241 @@
+@import './styles/utils/typography';
+@import './styles/utils/variables';
+@import './styles/utils/mixins';
+
+
+html[data-theme='light'] {
+  --light: #d8dbe0;
+  --dark: #28292c;
+  --link: rgb(27, 129, 112);
+  --link-hover: rgb(24, 94, 82);
+
+  --sceleton-color: #b4bdc3;
+
+  --rigths-text-color: #532097;
+  --arrow-main-color: #0f0f11;
+
+  --aut-form-bg-color: #fff;
+  --aut-input-bg-color: #fff;
+  --aut-btn-bg-color: #4219cf;
+  --aut-separator-color: #ccc;
+  --aut-swithc-btn-color: #007bff;
+
+  --select-border-color: #323542;
+  --select-border-focudes-color: #E8E9EE;
+  --select-menu-border-color: #fff;
+  --select-control-bg-color: #fff;
+  --select-border-color: #75767f;
+  --select-option-hover-color: #FAFBFC;
+  --select-hover-text-color: #0F0F11;
+   --select-menu-selected-color:#0F0F11;
+  --select-menu-not-selected-color: #75767f;
+
+
+  --scroll-bar-bg-color: #f1f1f1;
+  --scroll-bar-thumb-bg-color: #959595;
+  --scroll-bar-thumb-border-color: #f1f1f1;
+  --scroll-bar-thumb-hover-color: #888888;
+
+  --accent-color: #4219d0;
+  --header-logo: #313237;
+  --header-text-color: #89939a;
+
+  --primary-color: #0f0f11;
+  --secondary-color: #89939a;
+  --main-bg-color: #fff;
+
+  --main-icons-color: #0f0f11;
+  --icons-color: #b4bdc3;
+  --elements-color: #e2e6e9;
+  --slider-bg-color: #fff;
+  --slider-dots-color: #b4bdc3;
+  --slider-bg-hover-color: #fff;
+  --slider-bg-disable-color: #e2e6e9;
+  --sloder-border-hover-color: #e2e6e9;
+
+  // --sceleton-bg-color: red;
+  --product-back: #89939a;
+  --product-back-hover: #0f0f11;
+
+  --card--bg-color: #fff;
+  --card--bg-hover-color: #fff;
+  --cart-bg-disable-color: #fff;
+
+  --cart-border-color: #e2e6e9;
+  --cart-bg-color: #fff;
+
+  --pagination-selected-color: #0f0f11;
+
+  --bg-favorite: #fff;
+  --selected-btn-color: #fff;
+  --selected-text-color: #4219d0;
+  --btn-hover-shadow: rgba(23, 32, 49, 0.4);
+
+  --theme-change-brightness: 0;
+  --theme-main-color: #2ecc71;
+  --theme-second-color: lightgray;
+  --theme-background-color: #c4c7c9;
+
+  --hover-color: #fafbfc;
+  --background-color: #fafbfc;
+
+  --footer-link-color: #89939a;
+
+  --white-color: #ffffff;
+  --green-color: #27ae60;
+  --red-color: #eb5757;
+}
+
+html[data-theme='dark'] {
+  --light: #d8dbe0;
+  --dark: #28292c;
+  --link: rgb(27, 129, 112);
+  --link-hover: rgb(24, 94, 82);
+
+  --sceleton-color: #313237;
+
+  --rigths-text-color: #abacb4;
+  --arrow-main-color: #fff;
+  --arrow-disable-color: #abacb4;
+
+  --aut-form-bg-color: #1b1d2e;
+  --aut-input-bg-color: #242736;
+  --aut-btn-bg-color: #905bff;
+  --aut-separator-color: #3a3d49;
+  --aut-swithc-btn-color: #abacb4;
+
+  --select-border-color: #0F0F11;
+  --select-border-focudes-color: #4c4f5a ;
+  --select-menu-border-color: #0F0F11;
+  --select-control-bg-color: #242736;
+  --select-border-color: #323542;
+  --select-option-hover-color: #242736;
+  --select-hover-text-color: #fff;
+  --select-menu-selected-color:#fff;
+  --select-menu-not-selected-color: #4c4f5a;
+
+  --scroll-bar-bg-color: #75767f;
+  --scroll-bar-thumb-bg-color: #323542;
+  --scroll-bar-thumb-border-color:#75767f;
+  --scroll-bar-thumb-hover-color: #3a3d49;
+
+  --accent-color: #905bff;
+  --header-logo: #f1f2f9;
+  --header-text-color: #75767f;
+
+  --primary-color: #f1f2f9;
+  --secondary-color: #75767f;
+  --main-bg-color: #0f1121;
+
+  --main-icons-color: #fff;
+  --icons-color: #4a4d58;
+  --elements-color: #323542; // ??
+  --slider-bg-color: #4a4d58;
+  --slider-dots-color: #e2e6e9;
+  --slider-bg-hover-color: #75767f;
+  --slider-bg-disable-color: #0f1121;
+  --sloder-border-hover-color: #75767f;
+
+  // --sceleton-bg-color: rgb(55, 0, 255);
+  --product-back: #fff;
+  --product-back-hover: #75767f;
+
+  --card--bg-color: #161827;
+  --card--bg-hover-color: #242736;
+
+  --cart-border-color: #161827;
+  --cart-bg-color: #161827;
+  --cart-bg-disable-color: #0f1121;
+
+  --pagination-selected-color: #905bff;
+
+  --bg-favorite: #323542;
+  --selected-btn-color: #323542;
+  --selected-text-color: #fff;
+  --btn-hover-shadow: rgba(120, 151, 209, 0.4);
+
+  --theme-change-brightness: 10;
+  --theme-main-color: #2ecc71;
+  --theme-second-color: lightgray;
+  --theme-background-color: whitesmoke;
+
+  --hover-color: #161827;
+  --background-color: #0f1121;
+
+  --footer-link-color: #f1f2f9;
+
+  --white-color: #ffffff;
+  --green-color: #27ae60;
+  --red-color: #eb5757;
+}
+
+$background-color: #fafbfc;
+$white: #ffffff;
+$green: #27ae60;
+$red: #eb5757;
+
+html,
+body {
+  font-family: 'Mont', serif;
+  background-color: var(--background-color);
+  transition: $effectDuration;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  flex: 1 1 auto;
+}
+
+.container {
+  padding: 0 24px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: $header-height-mobile;
+
+  @include on-desktop {
+    padding-top: $header-height-desktop;
+  }
+}
+
+@keyframes fadeInZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+img {
+  opacity: 0;
+  animation: fadeInZoom 0.6s ease-in-out forwards;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--scroll-bar-bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-bar-thumb-bg-color);
+  border-radius: 8px;
+  border: 3px solid var(--scroll-bar-thumb-border-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scroll-bar-thumb-hover-color);
+}

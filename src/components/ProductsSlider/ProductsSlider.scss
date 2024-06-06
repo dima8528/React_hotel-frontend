@@ -1,0 +1,117 @@
+@import './mixin.scss';
+@import 'styles/utils/variables';
+
+.carousel {
+  @include on-mobile {
+    margin-bottom: 56px;
+  }
+
+  @include on-tablet {
+    margin-bottom: 64px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 80px;
+  }
+
+  &__top {
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 26px;
+  }
+
+  &__title {
+    color: var(--primary-color);
+    transition: $effectDuration;
+  }
+
+  &__nav {
+    @include on-mobile {
+      display: flex;
+      gap: 16px;
+      padding-right: 16px;
+    }
+
+    @include on-tablet {
+      padding-right: 32px;
+      padding-left: 32px;
+    }
+
+    @include on-desktop {
+      padding-right: 0;
+    }
+  }
+
+  &__button {
+    transition: $effectDuration;
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--icons-color);
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: var(--slider-bg-color);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      transition: $effectDuration;
+      border: 1px solid var(--sloder-border-hover-color);
+      background-color: var(--slider-bg-hover-color);
+    }
+
+    &:disabled {
+      cursor: no-drop;
+    }
+
+    &--left {
+      padding: 1px;
+      background-size: 5px;
+      transition: $effectDuration;
+    }
+
+    &--left:disabled {
+      background-color: var(--slider-bg-disable-color);
+      border: 1px solid var(--elements-color);
+      transition: $effectDuration;
+    }
+
+    &--right {
+      padding: 1px;
+      background-size: 5px;
+      transition: $effectDuration;
+    }
+
+    &--right:disabled {
+      background-color: var(--slider-bg-disable-color);
+      border: 1px solid var(--elements-color);
+      transition: $effectDuration;
+    }
+  }
+
+  &__cards {
+    list-style-type: none;
+    @include on-mobile {
+      @include page-grid;
+
+      padding: 0;
+      overflow: hidden;
+      scroll-behavior: smooth;
+      grid-column: 1 / -1;
+      grid-row: 1;
+      column-gap: 16px;
+      grid-template-columns: repeat(10, 220px);
+    }
+
+    @include on-tablet {
+      grid-template-columns: repeat(10, 275px);
+    }
+
+    @include on-desktop {
+      grid-template-columns: repeat(10, 272px);
+    }
+  }
+}
