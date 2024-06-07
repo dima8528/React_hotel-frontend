@@ -1,5 +1,5 @@
 import styles from './header.module.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { Link, NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -12,7 +12,7 @@ import { ReactComponent as Menus } from 'img/icons/burger-menu.svg';
 import { ReactComponent as Cours } from 'img/icons/cours.svg';
 import { ReactComponent as Auth } from 'img/icons/avatar.svg';
 import { Theme } from 'components/Theme/Theme';
-
+import Cookies from 'js-cookie';
 
 export const Header = () => {
   const [isMenuShow, setIsMenuShow] = useState(false);
@@ -20,6 +20,17 @@ export const Header = () => {
 
   const cartItes = useSelector((state: RootState) => state.product.cart);
   const cartCount = cartItes.length;
+  const [isAuth, setIsAuth] = useState<string | null>(null);
+
+  useEffect(() => {
+    const token = Cookies.get('accessToken') || null;
+    console.log('Token fetched from cookies:', token); // Логирование для отладки
+    setIsAuth(token);
+  }, []);
+
+  const auth_url = isAuth ? '/profile' : '/login';
+  console.log('isAuth', isAuth); // Логирование для отладки
+  console.log('auth_url', auth_url); // Логирование для отладки
 
   const toggleMenu = () => {
     setIsMenuShow(!isMenuShow);
@@ -71,7 +82,7 @@ export const Header = () => {
 
         <div>
           <NavLink
-            to="/auth"
+            to={auth_url}
             className={({ isActive }) =>
               classNames(styles.autos, { [styles.is_active]: isActive })
             }

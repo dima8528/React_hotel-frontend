@@ -1,6 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { Product } from 'types';
 import { toast } from 'react-toastify';
+import { RootState } from './store';
 
 export interface ProductState {
   products: Product[];
@@ -8,6 +9,7 @@ export interface ProductState {
   cart: Product[];
   cartTotalQuantity: number;
   cartTotalAmount: number;
+  isLogedIn: boolean;
 }
 
 const initialState: ProductState = {
@@ -16,6 +18,7 @@ const initialState: ProductState = {
   cart: [],
   cartTotalQuantity: 0,
   cartTotalAmount: 0,
+  isLogedIn: false,
 };
 
 type CartTotal = {
@@ -28,7 +31,7 @@ const loadState = (key: string) => {
     const serializedState = localStorage.getItem(key);
 
     if (serializedState === null) {
-      toast.error('Unable to upload products');
+      // toast.error('Unable to upload products');
       return;
     }
 
@@ -146,8 +149,14 @@ const productSlice = createSlice({
       state.cart = [];
       saveState('cart', state.cart);
   },
+
+    toggleIsLogedIn(state) {
+      state.isLogedIn = !state.isLogedIn;
+    }
   },
 });
+
+export const selectIsLogedIn = (state: RootState) => state.product.isLogedIn;
 
 export const {
   setFavourites,
@@ -160,6 +169,7 @@ export const {
   decreaseCart,
   getTotals,
   clearCart,
+  toggleIsLogedIn
 } = productSlice.actions;
 
 export default productSlice.reducer;

@@ -14,6 +14,7 @@ import { ContactsPage } from './pages/ContactsPage';
 import { RightsPage } from 'pages/RightsPage';
 import { AuthorizationPage } from 'pages/AuthorizationPage';
 import { ActivatePage } from 'pages/ActivatePage';
+import { ProfilePage } from 'pages/ProfilePage';
 
 export const Root = () => (
   <Router>
@@ -25,16 +26,18 @@ export const Root = () => (
         <Route path="/rooms" element={<RoomsPage />}></Route>
         <Route path="/rooms/:roomId" element={<ProductItemPage />}></Route>
 
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="/cart" element={<CartPage />} />
 
         <Route path="/activate/:token" element={<ActivatePage />} />
 
-        <Route path="*" element={<NotFoundPage />} />
-
         <Route path="/contacts" element={<ContactsPage />} />
         <Route path="/rights" element={<RightsPage />}/>
 
-        <Route path='auth' element={<AuthorizationPage />}/>
+        <Route path='/login' element={<AuthorizationPage selectLogin={true} />}/>
+        <Route path='/registration' element={<AuthorizationPage selectLogin={false} />}/>
+
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
   </Router>

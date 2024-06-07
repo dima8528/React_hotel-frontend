@@ -85,7 +85,7 @@ export const Filter = () => {
     <div className={styles.filter}>
       <div className={styles.filter__сontainer}>
         <span className={styles.filter__description}>
-          {t('filters.Filter by class')}
+          {t('filters.Filter by')}
         </span>
 
         <Dropdown

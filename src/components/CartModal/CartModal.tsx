@@ -1,7 +1,8 @@
 import { FC } from 'react';
 import Modal from 'react-modal';
 import styles from './cartModal.module.scss';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 type ModalProps = {
   isOpen: boolean;
@@ -9,15 +10,16 @@ type ModalProps = {
 };
 
 export const CartModal: FC<ModalProps> = ({ isOpen, onClose }) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleClearCart = () => {
-    dispatch({
-      type: 'product/clearCart',
-    });
+  // const handleClearCart = () => {
+  //   dispatch({
+  //     type: 'product/clearCart',
+  //   });
 
-    onClose();
-  };
+  //   onClose();
+  // };
 
   return (
     <Modal
@@ -28,13 +30,13 @@ export const CartModal: FC<ModalProps> = ({ isOpen, onClose }) => {
       ariaHideApp={false}
     >
       <h3 className={styles.main__text}>
-        Checkout is not implemented yet. Do you want to clear the Cart?
+        You are not authorized yet. Do you want to login or create an acount?
       </h3>
       <div className={styles.buttons}>
         <button className={`${styles.button} ${styles.cancel} `} onClick={onClose}>
           Cancel
         </button>
-        <button className={`${styles.button} ${styles.confirm} `} onClick={handleClearCart}>
+        <button className={`${styles.button} ${styles.confirm} `} onClick={() => navigate('/login')}>
           Confirm
         </button>
       </div>

@@ -51,10 +51,11 @@
 
 .buttons {
   display: flex;
+  justify-content: space-evenly;
   width: 100%;
   gap: 16px;
-  flex-direction: column;
-  padding-inline: 50px;
+  // flex-direction: column;
+  padding-inline: 20px;
 
   @include on-tablet {
     flex-direction: row;
@@ -65,9 +66,10 @@
 
 .button {
   display: flex;
+  max-width: 200px;
+  min-width: 80px;
+  width: 60%;
   margin-bottom: 20px;
-
-  width: 100%;
   min-height: 3em;
 
   font-family: $Mont;

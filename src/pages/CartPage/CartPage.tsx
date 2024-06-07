@@ -16,6 +16,7 @@ import * as animationData from 'animations/EmptyCart.json';
 import { motion } from 'framer-motion';
 import { titleVariants } from 'utils/titleVariants';
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 
 export const CartPage = () => {
@@ -24,14 +25,19 @@ export const CartPage = () => {
   );
   const dispatch = useDispatch();
   const [t] = useTranslation('global');
-  const [isAuth, setIsAuth] = useState<string | null>(localStorage.getItem('accessToken'));
-
-  const navigate = useNavigate();
+  const [isAuth, setIsAuth] = useState<string | null>(null);
 
   useEffect(() => {
-    setIsAuth(localStorage.getItem('accessToken'));
+    const token = Cookies.get('accessToken') || null;
+    console.log('Token fetched from cookies:', token); // Логирование для отладки
+    setIsAuth(token);
   }, []);
 
+  const auth_url = isAuth ? '/profile' : '/login';
+  console.log('isAuth', isAuth); // Логирование для отладки
+  console.log('auth_url', auth_url); // Логирование для отладки
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch({ type: 'product/getTotals' });
@@ -49,6 +55,16 @@ export const CartPage = () => {
     setModalIsOpen(false);
   };
 
+  const handleCheckout = () => {
+    if (!isAuth) {
+      openModal();
+    } else {
+      dispatch({
+        type: 'product/clearCart',
+      });
+    }
+  };
+
   const authResult = isAuth ? 'You are autorized' : 'You are not autorized';
 
   return (
@@ -63,8 +79,11 @@ export const CartPage = () => {
       >
         {t('cart.Cart')}
         <span style={{ color: 'purple', fontSize: '24px', margin: '0 30px', alignSelf: 'center' }}>{authResult}</span>
-        {isAuth && <button onClick={() => localStorage.removeItem('accessToken')}>Log out</button>}
-        {!isAuth && <button onClick={() => navigate('../auth')}>Log in</button>}
+        {isAuth && <button onClick={() => {
+          Cookies.remove('accessToken');
+          navigate('/');
+        }}>Log out</button>}
+        {!isAuth && <button onClick={() => navigate('../login')}>Log in</button>}
       </motion.h1>
 
       {cartTotalQuantity === 0 ? (
@@ -99,7 +118,7 @@ export const CartPage = () => {
 
             <ButtonPrimary
               textForPrimaryButton={RoomButtonType.CHECKOUT}
-              callback={openModal}
+              callback={handleCheckout}
             />
           </div>
         </div>

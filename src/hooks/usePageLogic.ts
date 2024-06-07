@@ -4,6 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import { getRoomsByRoomType } from 'api';
 import { Room } from 'types/Room';
 import { RoomTypes } from 'types/RoomTypes';
+import { toast } from 'react-toastify';
 
 export const usePageLogic = (roomType: RoomTypes) => {
   const [currentRooms, setCurrentRooms] = useState<Room[]>([]);
@@ -39,6 +40,7 @@ export const usePageLogic = (roomType: RoomTypes) => {
           console.log('No data returned from getRoomsByRoomType');
         }
       } catch (error) {
+        toast.error('Failed to load rooms');
         console.error('Error fetching rooms:', error);
       } finally {
         setIsLoading(false);
