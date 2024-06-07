@@ -16,6 +16,7 @@ export const usePageLogic = (roomType: RoomTypes) => {
 
   const params = new URLSearchParams(searchParams);
   const perPage = params.get('perPage');
+  const type = params.get('type') || RoomTypes.ALL;
   const roomsPerPage = perPage ? Number(perPage) : totalCount;
 
   useEffect(() => {
@@ -27,6 +28,7 @@ export const usePageLogic = (roomType: RoomTypes) => {
           String(roomsPerPage),
           sortBy,
           currentPage.toString(),
+          type,
         );
         console.log('roomType', roomType);
         if (result) {

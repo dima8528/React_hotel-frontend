@@ -42,11 +42,12 @@ export async function getRoomsByRoomType(
   perPage: string,
   sortBy: string,
   page: string,
+  type: string,
 ): Promise<{ rooms: Room[]; totalCount: number; totalPages: number }> {
   // &type=${type}
   try {
     const response = await fetch(
-      `${API_URL}/rooms/type/${roomType}?sortBy=${sortBy}&perPage=${perPage}&page=${page}`,
+      `${API_URL}/rooms/type/${roomType}?sortBy=${sortBy}&perPage=${perPage}&page=${page}&type=${type}`,
     );
     const data = await response.json();
     return {
