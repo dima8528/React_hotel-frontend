@@ -5,7 +5,7 @@ export const sortRooms = (rooms: Room[], sortBy: SortBy) => {
   const sortedRoomsCopy = [...rooms];
   if (sortBy === SortBy.BEST) {
     sortedRoomsCopy.sort((a, b) => b.roomTypeId - a.roomTypeId);
-  } else if (sortBy === SortBy.PRICE_PER_NIGHT) {
+  } else if (sortBy === SortBy.CHEAPEST) {
     sortedRoomsCopy.sort((a, b) => a.pricePerNight - b.pricePerNight);
   }
 

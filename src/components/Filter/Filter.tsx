@@ -7,7 +7,7 @@ import { useTheme } from 'hooks/useTheme';
 export enum SortBy {
   ALL = 'All',
   BEST = 'Best',
-  PRICE_PER_NIGHT = 'PricePerNight',
+  CHEAPEST = 'Cheapest',
 }
 
 export enum FilterBy {
@@ -38,7 +38,7 @@ export const Filter = () => {
   const sortOptions = [
     { value: `${SortBy.ALL}`, label: t('filters.All') },
     { value: `${SortBy.BEST}`, label: t('filters.Best') },
-    { value: `${SortBy.PRICE_PER_NIGHT}`, label: t('filters.Cheapest') },
+    { value: `${SortBy.CHEAPEST}`, label: t('filters.Cheapest') },
   ];
 
   const itemsPerPageOptions = [
