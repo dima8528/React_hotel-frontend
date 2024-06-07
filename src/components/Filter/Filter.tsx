@@ -10,9 +10,30 @@ export enum SortBy {
   PRICE_PER_NIGHT = 'PricePerNight',
 }
 
+export enum FilterBy {
+  ALL = 'All',
+  STANDARD = 'Standard',
+  LUX = 'Lux',
+  PREMIUM = 'Premium',
+}
+
+export enum ItemsOnPage {
+  ALL = 'All',
+  FOUR = '4',
+  EIGHT = '8',
+  SIXTEEN = '16',
+}
+
 export const Filter = () => {
   const [t] = useTranslation('global');
   const [searchParams, setSearchParams] = useSearchParams();
+
+  const filterOptions = [
+    { value: 'All', label: t(`filters.${FilterBy.ALL}`) },
+    { value: 'Standard', label: t(`filters.${FilterBy.STANDARD}`) },
+    { value: 'Lux', label: t(`filters.${FilterBy.LUX}`) },
+    { value: 'Premium', label: t(`filters.${FilterBy.PREMIUM}`) },
+  ];
 
   const sortOptions = [
     { value: `${SortBy.ALL}`, label: t('filters.All') },
@@ -27,11 +48,23 @@ export const Filter = () => {
     { value: 16, label: '16' },
   ];
 
+  const handleFilterParams = (selectedFilter: FilterBy) => {
+    const params = new URLSearchParams(searchParams);
+    params.set('type', selectedFilter);
+    setSearchParams(params.toString());
+  };
+
   const handleSortParams = (selectedSort: SortBy) => {
     const params = new URLSearchParams(searchParams);
     params.set('sort', selectedSort);
     setSearchParams(params.toString());
   };
+
+  // const handleItemsParams = (selectedItemsPerPage: ItemsOnPage) => {
+  //   const params = new URLSearchParams(searchParams);
+  //   params.set('perPage', selectedItemsPerPage);
+  //   setSearchParams(params.toString());
+  // };
 
   const handlePerPageParams = (selectedItemsPerPage: string) => {
     const params = new URLSearchParams(searchParams);
@@ -52,12 +85,29 @@ export const Filter = () => {
     <div className={styles.filter}>
       <div className={styles.filter__сontainer}>
         <span className={styles.filter__description}>
+          {t('filters.Filter by class')}
+        </span>
+
+        <Dropdown
+          options={filterOptions}
+          onFilterSelectChange={handleFilterParams}
+          onSortSelectChange={handleSortParams}
+          onItemsSelectChange={handlePerPageParams}
+          isFilterDropdown={true}
+          theme={isDarkTheme}
+        />
+      </div>
+
+      <div className={styles.filter__сontainer}>
+        <span className={styles.filter__description}>
           {t('filters.Sort by')}
         </span>
 
         <Dropdown
           options={sortOptions}
-          onSelectChange={handleSortParams}
+          onFilterSelectChange={handleFilterParams}
+          onSortSelectChange={handleSortParams}
+          onItemsSelectChange={handlePerPageParams}
           isSortDropdown={true}
           theme={isDarkTheme}
         />
@@ -65,13 +115,16 @@ export const Filter = () => {
 
       <div className={styles.filter__сontainer}>
         <span className={styles.filter__description}>
-          {t('filters.Items on page')}
+          {t('filters.Rooms on page')}
         </span>
 
         <div>
           <Dropdown
             options={itemsPerPageOptions}
-            onSelectChange={handlePerPageParams}
+            onFilterSelectChange={handleFilterParams}
+            onSortSelectChange={handlePerPageParams}
+            onItemsSelectChange={handlePerPageParams}
+            isItemsDropdown={true}
             theme={isDarkTheme}
           />
         </div>

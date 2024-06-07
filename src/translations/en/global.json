@@ -36,8 +36,8 @@
     "Book room by class": "Book room by class"
   },
   "room": {
-    "Add to book list": "Add to book list",
-    "Checkout": "Checkout",
+    "Add to booked": "Add to booked",
+    "Book the room": "Book the room",
     "Back": "Back",
     "Class": "Class",
     "Capacity": "Capacity",
@@ -84,10 +84,15 @@
   },
   "filters": {
     "Sort by": "Sort by",
-    "Items on page": "Items on page",
+    "Filter by class": "Filter by class",
+    "Rooms on page": "Rooms on page",
     "Best": "Best",
     "Cheapest": "Cheapest",
-    "All": "All"
+    "All": "All",
+    "Standard": "Standard",
+    "Lux": "Lux",
+    "Premium": "Premium",
+    "rooms": "rooms"
   },
   "ProductButtonType": {
     "Add to cart": "Add to cart",
@@ -99,8 +104,8 @@
     "Go to homepage": "Go to homepage"
   },
   "buttons": {
-    "Add to cart": "Add to cart",
-    "Added to cart": "Added to cart",
-    "Checkout": "Checkout"
+    "Add to booked": "Add to booked",
+    "Added to booked": "Added to booked",
+    "Book the room": "Book the room"
   }
 }

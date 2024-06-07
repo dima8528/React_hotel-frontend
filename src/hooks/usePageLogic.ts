@@ -25,8 +25,8 @@ export const usePageLogic = (roomType: RoomTypes) => {
         const result = await getRoomsByRoomType(
           roomType,
           String(roomsPerPage),
-          // sortBy,
-          // currentPage,
+          sortBy,
+          currentPage.toString(),
         );
         console.log('roomType', roomType);
         if (result) {

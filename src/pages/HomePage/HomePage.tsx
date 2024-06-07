@@ -3,7 +3,7 @@ import styles from './homepage.module.scss';
 import { useScrollToTopEffect } from 'utils';
 import { Slider } from 'components/Slider';
 import { ProductsSlider } from 'components/ProductsSlider';
-import { CategoriesSection } from 'components/CategoriesSection';
+import { ClassesSection } from 'components/ClassesSection';
 import { useTranslation } from 'react-i18next';
 import { getBestRooms, getCheapestRooms } from 'api';
 import { toast } from 'react-toastify';
@@ -57,7 +57,7 @@ export const HomePage = () => {
         loading={isLoading}
       />
 
-      <CategoriesSection />
+      <ClassesSection />
 
       <ProductsSlider
         title={t('home.Cheapest rooms')}

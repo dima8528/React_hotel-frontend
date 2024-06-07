@@ -181,33 +181,6 @@
   transition: $effectDuration;
 }
 
-.favorites {
-  position: relative;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  height: 100%;
-  width: 64px;
-
-  border-left: 1px solid var(--elements-color);
-  display: none;
-
-  @include on-desktop {
-    width: 64px;
-    height: 64px;
-    display: flex;
-  }
-
-  &__logo {
-    width: 20px;
-    height: 20px;
-    fill: var(--main-icons-color);
-    transition: $effectDuration;
-  }
-}
-
 .cart {
   position: relative;
 
@@ -271,37 +244,6 @@
   color: var(--white-color);
 
   font-size: 9px;
-
-  transition: $effectDuration;
-}
-
-.favoritesIconContainer {
-  position: relative;
-}
-
-.favoritesItemCount {
-  position: absolute;
-  right: 14px;
-  top: -8px;
-  right: -8px;
-  width: 14px;
-  height: 14px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-
-  background-color: var(--red-color);
-  color: var(--white-color);
-
-  font-size: 9px;
-
-  transition: $effectDuration;
-}
-
-.styles.favorites.is_active {
-  border-bottom: 1px solid var(--elements-color);
 
   transition: $effectDuration;
 }
@@ -499,4 +441,12 @@
 
 .theme {
   border-left: 1px solid var(--elements-color);
+}
+
+.language_switcher {
+  display: none;
+
+  @include on-desktop {
+    display: flex;
+  }
 }

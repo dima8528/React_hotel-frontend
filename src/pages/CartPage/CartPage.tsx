@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Product, ProductButtonType } from 'types';
+import { RoomButtonType } from 'types/RoomButtonType';
+import { Product } from 'types';
 import { RootState } from 'store/store';
 import styles from './cartPage.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
@@ -97,7 +98,7 @@ export const CartPage = () => {
             <div className={styles.totalCost__line}></div>
 
             <ButtonPrimary
-              textForPrimaryButton={ProductButtonType.CHECKOUT}
+              textForPrimaryButton={RoomButtonType.CHECKOUT}
               callback={openModal}
             />
           </div>

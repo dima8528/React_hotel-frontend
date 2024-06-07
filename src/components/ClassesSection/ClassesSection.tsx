@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './categoriesSection.module.scss';
+import styles from './classesSection.module.scss';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { titleVariants } from 'utils/titleVariants';
@@ -13,7 +13,7 @@ import Standard from './img/Standard.jpg';
 import Lux from './img/Lux.jpg';
 import Premium from './img/Premium.jpg';
 
-export const CategoriesSection: FC = () => {
+export const ClassesSection: FC = () => {
   const [rooms, setRooms] = useState<Room[]>([]);
   const [roomTypes, setRoomTypes] = useState<RoomType[]>([]);
   const [t] = useTranslation('global');
@@ -60,21 +60,21 @@ export const CategoriesSection: FC = () => {
       totalQuantity: standarts.length,
       image: Standard,
       backgroundColor: 'violet-background',
-      url: '/rooms/standard',
+      url: '/rooms?type=Standard',
     },
     {
       name: t('roomTypes.Lux'),
       totalQuantity: luxes.length,
       image: Lux,
       backgroundColor: 'grey-background',
-      url: '/rooms/lux',
+      url: '/rooms?type=Lux',
     },
     {
       name: t('roomTypes.Premium'),
       totalQuantity: premiums.length,
       image: Premium,
       backgroundColor: 'burgundy-background',
-      url: '/rooms/premium',
+      url: '/rooms/?type=Premium',
     },
   ];
 

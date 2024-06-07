@@ -1,17 +1,16 @@
-import React, { FC, useEffect, useMemo, useState } from 'react';
+import React, { FC, useMemo } from 'react';
 import { RootState } from 'store/store';
 import { Link, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Variants, motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { Product, ProductButtonType } from 'types';
+import { Product, RoomButtonType } from 'types';
 import styles from './roomCard.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { ButtonPrimary } from 'components/UI/ButtonPrimary';
 import useInViewOnce from '../../hooks/useInViewOnce';
 import { Room } from 'types/Room';
-import { API_URL, getRoomTypeById } from 'api';
-import { RoomType } from 'types/RoomType';
+import { API_URL } from 'api';
 
 type Props = {
   room: Room;
@@ -24,22 +23,15 @@ export const RoomCard: FC<Props> = ({ room }) => {
   const cart = useSelector((state: RootState) => state.product.cart);
   const location = useLocation();
 
-  const [roomType, setRoomType] = useState<RoomType | null>(null);
+  const roomTypes: { [key: number]: string } = {
+    1: 'Standard',
+    2: 'Lux',
+    3: 'Premium',
+  };
 
-  useEffect(() => {
-    const fetchRoomType = async () => {
-      try {
-        const fetchedRoomType = await getRoomTypeById(room.roomTypeId);
-        setRoomType(fetchedRoomType);
-      } catch (error) {
-        console.error('Error fetching room type:', error);
-      }
-    };
+  const roomTypeId = room.roomTypeId;
+  const roomTypeName = roomTypes[roomTypeId];
 
-    fetchRoomType();
-  }, [room.roomTypeId]);
-
-  const roomTypeName = roomType?.roomTypeName;
   const roomNumber = String(room.roomNumber);
 
   const isProductInCart = cart.some(
@@ -67,8 +59,8 @@ export const RoomCard: FC<Props> = ({ room }) => {
   };
 
   const url = useMemo(() => {
-
-    const basePath = `/${roomTypeName}`;
+    const basePath = `../rooms`;
+    // /${roomTypeName.toLowerCase()}
     const roomPath = `/${room.id}`;
     const currentPath = location.pathname;
 
@@ -128,7 +120,7 @@ export const RoomCard: FC<Props> = ({ room }) => {
               <div className={`${styles.details__price} ${styles.price}`} style={{ display: 'flex', justifyContent: 'flex-end' }}>
                 <div className={styles.price__discount}>{`$${room.pricePerNight}`}</div>
 
-                <div>{`/ ${t('room.night')}`}</div>
+                <div className={styles.nights}>{`/ ${t('room.night')}`}</div>
               </div>
             </div>
 
@@ -161,8 +153,8 @@ export const RoomCard: FC<Props> = ({ room }) => {
               <ButtonPrimary
                 textForPrimaryButton={
                   isProductInCart
-                    ? ProductButtonType.ADDED
-                    : ProductButtonType.ADD
+                    ? RoomButtonType.ADDED
+                    : RoomButtonType.ADD
                 }
                 callback={handleAddToCart}
               />

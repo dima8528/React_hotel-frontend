@@ -38,15 +38,15 @@ export const getInstanceOfType = (id: number): Promise<Room> => {
 }
 
 export async function getRoomsByRoomType(
-  roomTypeName: string,
+  roomType: string,
   perPage: string,
-  sortBy = 'id',
-  page = 1,
+  sortBy: string,
+  page: string,
 ): Promise<{ rooms: Room[]; totalCount: number; totalPages: number }> {
-
+  // &type=${type}
   try {
     const response = await fetch(
-      `${API_URL}/rooms/type/${roomTypeName}?sortBy=${sortBy}&perPage=${perPage}&page=${page}`,
+      `${API_URL}/rooms/type/${roomType}?sortBy=${sortBy}&perPage=${perPage}&page=${page}`,
     );
     const data = await response.json();
     return {

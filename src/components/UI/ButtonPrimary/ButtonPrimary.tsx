@@ -1,11 +1,11 @@
 import styles from './buttonPrimary.module.scss';
 import { FC } from 'react';
 import classNames from 'classnames';
-import { ProductButtonType } from 'types';
+import { RoomButtonType } from 'types';
 import { useTranslation } from 'react-i18next';
 
 interface Props {
-  textForPrimaryButton: ProductButtonType;
+  textForPrimaryButton: RoomButtonType;
   callback: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -13,11 +13,11 @@ export const ButtonPrimary: FC<Props> = ({
   textForPrimaryButton,
   callback,
 }) => {
-  const getButtonClass = (buttonType: ProductButtonType) =>
+  const getButtonClass = (buttonType: RoomButtonType) =>
     classNames(styles.button, {
-      [styles.checkout]: ProductButtonType.CHECKOUT === buttonType,
-      [styles.default]: ProductButtonType.ADD === buttonType,
-      [styles.selected]: ProductButtonType.ADDED === buttonType,
+      [styles.checkout]: RoomButtonType.CHECKOUT === buttonType,
+      [styles.default]: RoomButtonType.ADD === buttonType,
+      [styles.selected]: RoomButtonType.ADDED === buttonType,
     });
 
   const [t] = useTranslation('global');

@@ -10,15 +10,20 @@ import { NotFoundPage } from 'pages/NotFoundPage';
 import { isValidCurrentPage } from 'utils/isValidCurrentPage';
 import { titleVariants } from 'utils/titleVariants';
 import { RoomTypes } from 'types/RoomTypes';
+import { useSearchParams } from 'react-router-dom';
 
 export const RoomsPage = () => {
+  const [ searchParams ] = useSearchParams();
+  const params = new URLSearchParams(searchParams);
+  const type = params.get('type') || RoomTypes.ALL;
+
   const {
     isLoading,
     currentRooms,
     totalCount = 0,
     currentPage,
     handlePagination,
-  } = usePageLogic(RoomTypes.ALL);
+  } = usePageLogic(type as RoomTypes || RoomTypes.ALL);
   const [t] = useTranslation('global');
 
   useScrollToTopEffect();

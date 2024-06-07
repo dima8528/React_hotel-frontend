@@ -1,5 +1,5 @@
 import styles from './header.module.scss';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import classNames from 'classnames';
 import { Link, NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -16,7 +16,6 @@ import { Theme } from 'components/Theme/Theme';
 
 export const Header = () => {
   const [isMenuShow, setIsMenuShow] = useState(false);
-  const [isLangSwitcherShow, setIsLangSwitcherShow] = useState(false);
   const [t] = useTranslation('global');
 
   const cartItes = useSelector((state: RootState) => state.product.cart);
@@ -28,12 +27,6 @@ export const Header = () => {
 
   const getLinkClass = ({ isActive }: { isActive: boolean }) =>
     classNames(styles.header__nav_link, { [styles.is_active]: isActive });
-
-  useEffect(() => {
-    if (window.innerWidth >= 640) {
-      setIsLangSwitcherShow(true);
-    }
-  }, []);
 
   return (
     <div className={styles.header}>
@@ -69,7 +62,7 @@ export const Header = () => {
 
       <div className={styles.right_side}>
         <div className={styles.language_switcher}>
-          {isLangSwitcherShow && <SwitchLanguageHeader />}
+        <SwitchLanguageHeader />
         </div>
 
         <div className={styles.theme}>

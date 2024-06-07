@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import Select, { StylesConfig, CSSObjectWithLabel } from 'react-select';
 import { SortBy } from 'components/Filter';
+import { FilterBy } from 'components/Filter';
+import { ItemsOnPage } from 'components/Filter';
 import { useSearchParams } from 'react-router-dom';
 
 interface Option {
@@ -10,8 +12,12 @@ interface Option {
 
 interface DropdownProps {
   options: Option[];
-  onSelectChange: (selectedOption: SortBy) => void;
+  onSortSelectChange: (selectedOption: SortBy) => void;
+  onFilterSelectChange: (selectedOption: FilterBy) => void;
+  onItemsSelectChange: (selectedOption: ItemsOnPage) => void;
   isSortDropdown?: boolean;
+  isFilterDropdown?: boolean;
+  isItemsDropdown?: boolean;
   theme: boolean;
 }
 
@@ -24,7 +30,7 @@ interface CustomStylesProps {
 const getBaseStyles = (theme: boolean): StylesConfig<Option, false> => ({
   control: (base: CSSObjectWithLabel, { isFocused }: CustomStylesProps) => ({
     ...base,
-    border: `1px solid ${isFocused ? 'var(--select-border-focudes-color)' : 'var(--select-border-color)'}`,
+    border: `1px solid ${isFocused ? 'var(--select-border-focused-color)' : 'var(--select-border-color)'}`,
     backgroundColor: 'var(--select-control-bg-color)',
     color: `${theme ? '#242736' : '#fff'}`,
     boxShadow: 'none',
@@ -37,7 +43,7 @@ const getBaseStyles = (theme: boolean): StylesConfig<Option, false> => ({
     transition: 'all .3s ease',
 
     '&:hover': {
-      borderColor: 'var(--select-border-focudes-color)',
+      borderColor: 'var(--select-border-focused-color)',
       transition: 'all .3s ease',
     },
   }),
@@ -107,28 +113,65 @@ const getDefaultStyles = (theme: boolean): StylesConfig<Option, false> => {
   };
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const isInstanceOf = (row: string, enm: any) => {
+  return Object.values(enm).includes(row);
+}
+
 export const Dropdown: FC<DropdownProps> = ({
   options,
-  onSelectChange,
+  onSortSelectChange,
+  onFilterSelectChange,
+  onItemsSelectChange,
   isSortDropdown,
+  isFilterDropdown,
+  isItemsDropdown,
   theme,
 }) => {
   const handleChange = (selectedOption: Option | null) => {
     if (selectedOption) {
-      onSelectChange(selectedOption.value as SortBy);
+      if (isSortDropdown && isInstanceOf(selectedOption.value as string, SortBy)) {
+        onSortSelectChange(selectedOption.value as SortBy);
+      } else if (isFilterDropdown && isInstanceOf(selectedOption.value as string, FilterBy)) {
+        onFilterSelectChange(selectedOption.value as FilterBy);
+      } else if (isItemsDropdown && isInstanceOf(selectedOption.value.toString(), ItemsOnPage)) {
+        onItemsSelectChange(selectedOption.value as ItemsOnPage);
+      }
     }
   };
 
   const [searchParams] = useSearchParams();
   const params = new URLSearchParams(searchParams);
   const sortByParam = params.get('sort');
+  const filterByClassParam = params.get('type');
   const perPageParam = params.get('perPage');
 
   const getSelectedValue = (options: Option[]) => {
-    if (options[0].value === SortBy.ALL) {
-      return options.find(option => option.value === sortByParam);
+    if (isSortDropdown) {
+      if (!sortByParam) {
+        return options[0];
+      }
+
+      return options.find(option => option.value === sortByParam) || options[0];
     }
-    return options.find(option => option.value === Number(perPageParam));
+
+    if (isFilterDropdown) {
+      if (!filterByClassParam) {
+        return options[0];
+      }
+
+      return options.find(option => option.value === filterByClassParam) || options[0];
+    }
+
+    if (isItemsDropdown) {
+      if (!perPageParam) {
+        return options[0];
+      }
+
+      return options.find(option => option.value === perPageParam) || options[0];
+    }
+
+    // return options.find(option => option.value === perPageParam) || options[0]
   };
 
   const isWideScreen = window.innerWidth >= 640;
@@ -136,7 +179,7 @@ export const Dropdown: FC<DropdownProps> = ({
   return (
     <div>
       <Select
-        defaultValue={getSelectedValue(options) || options[0]}
+        defaultValue={getSelectedValue(options)}
         options={options}
         styles={
           isSortDropdown && isWideScreen

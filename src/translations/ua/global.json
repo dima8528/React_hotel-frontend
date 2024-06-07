@@ -36,8 +36,8 @@
     "Book room by class": "Бронюй номер за класом"
   },
   "room": {
-    "Add to book list": "Додати в список бронювань",
-    "Checkout": "Забронювати",
+    "Add to booked": "Додати в список бронювань",
+    "Book the room": "Забронювати",
     "Back": "Назад",
     "Class": "Клас",
     "Capacity": "Кількість місць",
@@ -84,18 +84,23 @@
   },
   "filters": {
     "Sort by": "Сортувати за",
-    "Items on page": "Товарів на сторінці",
+    "Filter by class": "Фільтрувати за класом",
+    "Rooms on page": "Номерів на сторінці",
     "Best": "Найкращі",
     "Cheapest": "Найдешевші",
-    "All": "Усі"
+    "All": "Усі",
+    "Standard": "Стандарт",
+    "Lux": "Люкс",
+    "Premium": "Преміум",
+    "rooms": "номерів"
   },
   "404": {
     "Oops, page not found!": "Ой, сторінки не знайдено!",
     "Go to homepage": "На головну"
   },
   "buttons": {
-    "Add to cart": "Купити",
-    "Added to cart": "У кошику",
-    "Checkout": "Оформити замовлення"
+    "Add to booked": "Забронювати",
+    "Added to booked": "Заброньовано",
+    "Book the room": "Забронювати"
   }
 }

@@ -135,3 +135,8 @@
   justify-content: space-between;
   gap: 8px;
 }
+
+.nights {
+  color: var(--primary-color);
+  transition: $effectDuration;
+}
