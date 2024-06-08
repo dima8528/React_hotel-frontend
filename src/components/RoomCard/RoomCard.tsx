@@ -43,14 +43,14 @@ export const RoomCard: FC<Props> = ({ room }) => {
     event.preventDefault();
 
     if (isProductInCart) {
-      toast.success('The product has been removed');
+      toast.success('The room has been removed from booked ones');
 
       dispatch({
         type: 'product/removeFromCart',
         payload: room,
       });
     } else {
-      toast.success('The product has been added');
+      toast.success('The room has been added to booked ones');
 
       dispatch({
         type: 'product/addToCart',

@@ -12,13 +12,14 @@ export const RightsPage = () => {
       </div>
       <div className={styles.content}>
         <p className={styles.text}>
-          © [2024] [BestTeam]. All materials on this site are protected by
+          © [2024]. All materials on this site are protected by
           copyright. Any use without permission of the copyright holder is
           prohibited. All trademarks and logos are the property of their
           respective owners. For more information, please contact{' '}
-          <Link to="/contacts" className={styles.contacts}>
-            Contacts
+          <Link to="https://github.com/dima8528" className={styles.contacts} target='_blank'>
+            the developer
           </Link>
+          .
         </p>
       </div>
     </div>

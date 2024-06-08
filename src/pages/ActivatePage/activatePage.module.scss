@@ -1,0 +1,21 @@
+.activate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.animation {
+  display: flex;
+  height: 350px;
+  width: 350px;
+  margin-bottom: 32px;
+}
+
+.text {
+  color: var(--primary-color);
+  font-size: 24px;
+  font-weight: 600;
+}

@@ -46,7 +46,7 @@ const saveState = (key: string, state: Product[]) => {
     const serializedState = JSON.stringify(state);
     localStorage.setItem(key, serializedState);
   } catch {
-    toast.error('The product has not been removed');
+    toast.error('The room has not been removed from booked ones');
   }
 };
 

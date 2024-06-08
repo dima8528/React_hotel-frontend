@@ -1,8 +1,10 @@
 import { API_URL } from 'api';
 import styles from './activatePage.module.scss'
-import { To, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Cookies from 'js-cookie';
+import * as animationData from 'animations/Activation_Animation.json';
+import { LottieAnimation } from 'components/UI/LottieAnimation';
 
 export const ActivatePage = () => {
   const { token } = useParams();
@@ -15,12 +17,17 @@ export const ActivatePage = () => {
       .then((data) => {
         toast.success(data.message);
         Cookies.set('accessToken', data.accessToken, { expires: 1 });
-        navigate(0 as To, { replace: true });
+        setTimeout(() => navigate('/'), 5000);
       });
 
   return (
     <div className={styles.activate}>
-      Pending
+      <div className={styles.animation}>
+        <LottieAnimation animationData={animationData} />
+      </div>
+
+      <p className={styles.text}>Thanks for activating your account! You will be redirected to the main page in 5 seconds
+</p>
     </div>
   );
 };

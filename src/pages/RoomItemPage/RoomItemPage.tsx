@@ -82,7 +82,8 @@ export const RoomItemPage = () => {
           setLoader(false);
         })
         .catch(() => {
-          toast.error('Failed to fetch Room');
+          toast.error('Failed to fetch the room');
+          setErrorMessage('Failed to fetch the room');
           setLoader(false);
         })
         .finally(() => {
@@ -110,6 +111,7 @@ export const RoomItemPage = () => {
           const recommendedRooms = await getBestRooms();
           setRecommendedRooms(recommendedRooms);
         } catch (error) {
+          setErrorMessage('Failed to fetch rooms');
           toast.error('Failed to fetch rooms');
         }
       };
@@ -124,14 +126,14 @@ export const RoomItemPage = () => {
 
   const handleAddToCart = () => {
     if (isRoomInCart) {
-      toast.success('The Room has been removed');
+      toast.success('The room has been removed from booked ones');
 
       dispatch({
         type: 'Room/removeFromCart',
         payload: room?.id,
       });
     } else {
-      toast.success('The Room has been added');
+      toast.success('The room has been added to booked ones');
 
       dispatch({
         type: 'Room/addToCart',
