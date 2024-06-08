@@ -1,4 +1,4 @@
-import React, { useState, useRef, FC } from 'react';
+import React, { useState, useRef, FC, SetStateAction, Dispatch } from 'react';
 import styles from './authorizationPage.module.scss';
 import { ReactComponent as Lock } from 'img/icons/lock.svg';
 import { ReactComponent as Unlock } from 'img/icons/unlock.svg';
@@ -12,6 +12,19 @@ interface PasswordInputProps {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
+
+type AuthProps = {
+  selectLogin: boolean;
+  onAccToken: Dispatch<SetStateAction<string | null>>;
+}
+
+type LoginProps = {
+  onAccToken: Dispatch<SetStateAction<string | null>>;
+}
+
+// type RegisterProps = {
+//   onAccToken: Dispatch<SetStateAction<string | null>>;
+// }
 
 const PasswordInput: React.FC<PasswordInputProps> = ({ placeholder, value, onChange }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -42,7 +55,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({ placeholder, value, onCha
   );
 };
 
-const LoginForm = () => {
+const LoginForm: FC<LoginProps> = ({ onAccToken }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -63,6 +76,7 @@ const LoginForm = () => {
       if (response.ok) {
         const data = await response.json();
         Cookies.set('accessToken', data.accessToken, { expires: 1 });
+        onAccToken(data.accessToken);
         navigate(-1);
         console.log('ok');
       } else {
@@ -187,11 +201,7 @@ const RegisterForm = () => {
   );
 };
 
-type Props = {
-  selectLogin: boolean;
-}
-
-export const AuthorizationPage: FC<Props> = ({ selectLogin }) => {
+export const AuthorizationPage: FC<AuthProps> = ({ selectLogin, onAccToken }) => {
   const isLogin = selectLogin;
   const navigate = useNavigate();
   const location = useLocation();
@@ -207,7 +217,7 @@ export const AuthorizationPage: FC<Props> = ({ selectLogin }) => {
   return (
     <div className={styles.container}>
       <div className={styles.form}>
-        {isLogin ? <LoginForm /> : <RegisterForm />}
+        {isLogin ? <LoginForm onAccToken={onAccToken} /> : <RegisterForm />}
         <div className={styles.switchButton} onClick={switchMode}>
           {isLogin ? 'No account? Sign up here' : 'Login here'}
         </div>

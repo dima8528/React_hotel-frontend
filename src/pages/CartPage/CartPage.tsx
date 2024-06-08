@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
 import { RoomButtonType } from 'types/RoomButtonType';
 import { Product } from 'types';
 import { RootState } from 'store/store';
@@ -18,8 +18,11 @@ import { titleVariants } from 'utils/titleVariants';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
+type Props = {
+  onAccToken: Dispatch<SetStateAction<string | null>>;
+};
 
-export const CartPage = () => {
+export const CartPage: FC<Props> = ({ onAccToken }) => {
   const { cart, cartTotalAmount, cartTotalQuantity } = useSelector(
     (state: RootState) => state.product,
   );
@@ -81,6 +84,7 @@ export const CartPage = () => {
         <span style={{ color: 'purple', fontSize: '24px', margin: '0 30px', alignSelf: 'center' }}>{authResult}</span>
         {isAuth && <button onClick={() => {
           Cookies.remove('accessToken');
+          onAccToken(null);
           navigate('/');
         }}>Log out</button>}
         {!isAuth && <button onClick={() => navigate('../login')}>Log in</button>}

@@ -5,12 +5,16 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { MessageContainer } from "./components/UI/MessageNotification";
 
-export const App = () => {
+type Props = {
+  accToken: string | null;
+};
+
+export const App: React.FC<Props> = ({ accToken }) => {
   return (
     <div data-cy="app" className="wrapper">
       <MessageContainer />
 
-      <Header />
+      <Header accToken={accToken} />
 
       <div className="section">
         <div className="container">

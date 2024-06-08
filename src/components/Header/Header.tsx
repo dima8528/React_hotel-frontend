@@ -1,5 +1,5 @@
 import styles from './header.module.scss';
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { Link, NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -14,23 +14,30 @@ import { ReactComponent as Auth } from 'img/icons/avatar.svg';
 import { Theme } from 'components/Theme/Theme';
 import Cookies from 'js-cookie';
 
-export const Header = () => {
+type Props = {
+  accToken: string | null;
+};
+
+export const Header: FC<Props> = ({ accToken }) => {
   const [isMenuShow, setIsMenuShow] = useState(false);
   const [t] = useTranslation('global');
 
   const cartItes = useSelector((state: RootState) => state.product.cart);
   const cartCount = cartItes.length;
-  const [isAuth, setIsAuth] = useState<string | null>(null);
+  // const [isAuth, setIsAuth] = useState<string | null>(null);
 
   useEffect(() => {
     const token = Cookies.get('accessToken') || null;
     console.log('Token fetched from cookies:', token); // Логирование для отладки
-    setIsAuth(token);
+    // setIsAuth(token);
   }, []);
 
-  const auth_url = isAuth ? '/profile' : '/login';
-  console.log('isAuth', isAuth); // Логирование для отладки
-  console.log('auth_url', auth_url); // Логирование для отладки
+  console.log('accToken', accToken); // Логирование для отладки
+
+
+  const auth_url = accToken ? '/profile' : '/login';
+  // console.log('isAuth', isAuth); // Логирование для отладки
+  // console.log('auth_url', auth_url); // Логирование для отладки
 
   const toggleMenu = () => {
     setIsMenuShow(!isMenuShow);
