@@ -47,14 +47,20 @@
 }
 
 .details {
-  &__name {
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__name, &__number {
     height: 58px;
-    padding-top: 16px;
+    padding-top: 24px;
     margin-bottom: 8px;
     line-height: 21px;
 
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: 700;
 
     color: var(--primary-color);
     transition: $effectDuration;

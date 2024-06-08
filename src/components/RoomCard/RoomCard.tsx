@@ -29,6 +29,7 @@ export const RoomCard: FC<Props> = ({ room }) => {
     3: 'Premium',
   };
 
+  const roomName = room.roomName;
   const roomTypeId = room.roomTypeId;
   const roomTypeName = roomTypes[roomTypeId];
 
@@ -115,7 +116,11 @@ export const RoomCard: FC<Props> = ({ room }) => {
             </div>
 
             <div className={`${styles.room__details} ${styles.details}`}>
-              <h3 className={styles.details__name}>{roomNumber}</h3>
+              <div className={styles.details__top}>
+                <h3 className={styles.details__name}>{roomName}</h3>
+
+                {/* <p className={styles.details__number}>{roomNumber}</p> */}
+              </div>
 
               <div className={`${styles.details__price} ${styles.price}`} style={{ display: 'flex', justifyContent: 'flex-end' }}>
                 <div className={styles.price__discount}>{`$${room.pricePerNight}`}</div>

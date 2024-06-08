@@ -1,5 +1,6 @@
 export type Room = {
   id: number;
+  roomName: string;
   roomNumber: number;
   roomTypeId: number;
   floor: number;
