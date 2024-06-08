@@ -9,7 +9,7 @@ import { HomePage } from './pages/HomePage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { RoomsPage } from './pages/RoomsPage';
 import { CartPage } from './pages/CartPage';
-import { ProductItemPage } from './pages/ProductItemPage';
+import { RoomItemPage } from './pages/RoomItemPage';
 import { ContactsPage } from './pages/ContactsPage';
 import { RightsPage } from 'pages/RightsPage';
 import { AuthorizationPage } from 'pages/AuthorizationPage';
@@ -20,6 +20,7 @@ import Cookies from 'js-cookie';
 
 export const Root = () => {
   const [accToken, setAccToken] = useState<string | null>(Cookies.get('accessToken') || null);
+
   return (
     <Router>
       <Routes>
@@ -28,7 +29,7 @@ export const Root = () => {
           <Route path="/home" element={<Navigate to="/" replace />} />
 
           <Route path="/rooms" element={<RoomsPage />}></Route>
-          <Route path="/rooms/:roomId" element={<ProductItemPage />}></Route>
+          <Route path="/rooms/:roomId" element={<RoomItemPage />}></Route>
 
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/cart" element={<CartPage onAccToken={setAccToken} />} />

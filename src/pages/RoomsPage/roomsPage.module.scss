@@ -2,10 +2,10 @@
 @import 'styles/utils/variables';
 
 .container {
-  margin: 24px 17px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 24px 17px;
 
   @include on-tablet {
     margin: 24px 24px;

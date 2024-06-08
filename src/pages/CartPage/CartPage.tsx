@@ -123,6 +123,7 @@ export const CartPage: FC<Props> = ({ onAccToken }) => {
             <ButtonPrimary
               textForPrimaryButton={RoomButtonType.CHECKOUT}
               callback={handleCheckout}
+              isAvailable
             />
           </div>
         </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './homepage.module.scss';
 import { useScrollToTopEffect } from 'utils';
 import { Slider } from 'components/Slider';
-import { ProductsSlider } from 'components/ProductsSlider';
+import { RoomsSlider } from 'components/RoomsSlider';
 import { ClassesSection } from 'components/ClassesSection';
 import { useTranslation } from 'react-i18next';
 import { getBestRooms, getCheapestRooms } from 'api';
@@ -51,7 +51,7 @@ export const HomePage = () => {
       </motion.h1>
       <Slider />
 
-      <ProductsSlider
+      <RoomsSlider
         title={t('home.Best rooms')}
         rooms={bestRooms}
         loading={isLoading}
@@ -59,7 +59,7 @@ export const HomePage = () => {
 
       <ClassesSection />
 
-      <ProductsSlider
+      <RoomsSlider
         title={t('home.Cheapest rooms')}
         rooms={cheapestRooms}
         loading={isLoading}

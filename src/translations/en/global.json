@@ -43,15 +43,14 @@
     "Capacity": "Capacity",
     "Floor": "Floor",
     "Price": "Price",
+    "Number": "Number",
     "Available": "Available",
     "Yes": "Yes",
     "No": "No",
     "night": "night"
   },
   "roomPage": {
-    "rooms": "Rooms"
-  },
-  "productPage": {
+    "rooms": "Rooms",
     "Add to cart": "Add to cart",
     "Added to cart": "Added to cart",
     "Back": "Back",
@@ -67,20 +66,18 @@
     "Built in memory": "Built in memory",
     "Camera": "Camera",
     "Zoom": "Zoom",
-    "Cell": "Cell"
+    "Cell": "Cell",
+    "Specifications": "Specifications"
   },
   "roomTypes": {
     "Class": "Class",
     "Standard": "Standard",
     "Lux": "Lux",
     "Premium": "Premium",
-    "rooms": "rooms"
-  },
-  "favourites": {
-    "Favourites": "Favourites",
-    "items": "items",
-    "There are no items yet": "There are no items yet",
-    "GO HOME": "GO HOME"
+    "rooms": "rooms",
+    "Description standart": "Experience comfort and convenience in our well-appointed Standard Rooms, designed to offer a serene retreat after a busy day. Each room features cozy bedding, modern furnishings, and essential amenities to ensure a pleasant stay. Guests can enjoy complimentary Wi-Fi, a flat-screen TV with cable channels, a spacious work desk, and an en-suite bathroom stocked with high-quality toiletries. Whether you're traveling for business or leisure, our Standard Rooms provide a comfortable base for your stay.",
+    "Description lux": "Elevate your stay with our Lux Rooms, where sophistication meets comfort. These rooms are thoughtfully designed with plush furnishings, premium bedding, and tasteful decor to create an inviting and luxurious atmosphere. Enjoy enhanced amenities including a larger flat-screen TV, a minibar stocked with premium selections, a comfortable seating area, and a spacious bathroom with a rain shower and deluxe bath products. Guests will also appreciate the added touches like a complimentary breakfast and evening turndown service. Perfect for those seeking a touch of luxury during their visit.",
+    "Description premium": "For the discerning traveler, our Premium Rooms offer an unparalleled level of luxury and comfort. These expansive rooms feature elegant decor, high-end furnishings, and state-of-the-art technology to cater to all your needs. Indulge in the plush king-size bed, relax in the separate living area, and enjoy the convenience of a fully stocked minibar with gourmet snacks and beverages. The spacious marble bathroom boasts a deep soaking tub, a rain shower, and exclusive designer toiletries. Premium Rooms also include VIP services such as private check-in, complimentary airport transfers, and access to our exclusive lounge with complimentary refreshments throughout the day. Experience the pinnacle of hospitality with our Premium Rooms."
   },
   "filters": {
     "Sort by": "Sort by",

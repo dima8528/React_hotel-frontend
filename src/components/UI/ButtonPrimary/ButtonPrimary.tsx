@@ -7,11 +7,13 @@ import { useTranslation } from 'react-i18next';
 interface Props {
   textForPrimaryButton: RoomButtonType;
   callback: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  isAvailable: boolean;
 }
 
 export const ButtonPrimary: FC<Props> = ({
   textForPrimaryButton,
   callback,
+  isAvailable,
 }) => {
   const getButtonClass = (buttonType: RoomButtonType) =>
     classNames(styles.button, {
@@ -23,7 +25,11 @@ export const ButtonPrimary: FC<Props> = ({
   const [t] = useTranslation('global');
 
   return (
-    <button className={getButtonClass(textForPrimaryButton)} onClick={callback}>
+    <button
+      className={getButtonClass(textForPrimaryButton)}
+      onClick={callback}
+      disabled={!isAvailable}
+    >
       {t(`buttons.${textForPrimaryButton}`)}
     </button>
   );

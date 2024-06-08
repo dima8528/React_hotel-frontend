@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, FC } from 'react';
 import { Room } from 'types/Room';
-import './ProductsSlider.scss';
+import './roomsSlider.scss';
 import { RoomCard } from 'components/RoomCard';
 import { CardSkeleton } from 'components/ProductCardSkeleton/ProductCardSkeleton';
 // import { CardSkeleton } from 'components/ProductCardSkeleton';
@@ -11,7 +11,7 @@ type Props = {
   loading: boolean;
 };
 
-export const ProductsSlider: FC<Props> = ({ title, rooms, loading }) => {
+export const RoomsSlider: FC<Props> = ({ title, rooms, loading }) => {
   const [activeArrowLeft, setActiveArrowLeft] = useState(false);
   const [activeArrowRight, setActiveArrowRight] = useState(true);
   const slider = useRef<HTMLUListElement>(null);

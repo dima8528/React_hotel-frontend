@@ -162,6 +162,7 @@ export const RoomCard: FC<Props> = ({ room }) => {
                     : RoomButtonType.ADD
                 }
                 callback={handleAddToCart}
+                isAvailable={room.available}
               />
             </div>
           </div>
