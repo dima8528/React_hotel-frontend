@@ -1,6 +1,5 @@
 import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
 import { RoomButtonType } from 'types/RoomButtonType';
-import { Product } from 'types';
 import { RootState } from 'store/store';
 import styles from './cartPage.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,33 +16,64 @@ import { motion } from 'framer-motion';
 import { titleVariants } from 'utils/titleVariants';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import { Room } from 'types/Room';
 
 type Props = {
   onAccToken: Dispatch<SetStateAction<string | null>>;
 };
 
 export const CartPage: FC<Props> = ({ onAccToken }) => {
-  const { cart, cartTotalAmount, cartTotalQuantity } = useSelector(
-    (state: RootState) => state.product,
+  const { cart, cartTotalAmount, cartTotalNights: cartTotalNights } = useSelector(
+    (state: RootState) => state.room,
   );
   const dispatch = useDispatch();
   const [t] = useTranslation('global');
   const [isAuth, setIsAuth] = useState<string | null>(null);
 
+  const [bookedRooms, setBookedRooms] = useState<Room[]>(() => {
+    const savedItems = localStorage.getItem('bookedRooms');
+    return savedItems ? JSON.parse(savedItems) : [];
+  });
+
+  const [cartRooms, setCartRooms] = useState<Room[]>(() => {
+    const savedItems = localStorage.getItem('cart');
+    return savedItems ? JSON.parse(savedItems) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('bookedRooms', JSON.stringify(bookedRooms));
+  }, [bookedRooms]);
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cartRooms));
+  }, [cartRooms]);
+
+  const addBookedRooms = (rooms: Room[]) => {
+    setBookedRooms([...bookedRooms, ...rooms]);
+  };
+
+  // const removeBookedRooms = (rooms: Room[]) => {
+  //   setBookedRooms(bookedRooms.filter((room) => !rooms.includes(room)));
+  // };
+
+  const removeCartRooms = (rooms: Room[]) => {
+    setCartRooms(cartRooms.filter((room) => !rooms.includes(room)));
+  };
+
   useEffect(() => {
     const token = Cookies.get('accessToken') || null;
-    console.log('Token fetched from cookies:', token); // Логирование для отладки
+    console.log('Token fetched from cookies:', token);
     setIsAuth(token);
   }, []);
 
   const auth_url = isAuth ? '/profile' : '/login';
-  console.log('isAuth', isAuth); // Логирование для отладки
-  console.log('auth_url', auth_url); // Логирование для отладки
+  console.log('isAuth', isAuth);
+  console.log('auth_url', auth_url);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    dispatch({ type: 'product/getTotals' });
+    dispatch({ type: 'room/getTotals' });
   }, [cart, dispatch]);
 
   useScrollToTopEffect();
@@ -62,8 +92,10 @@ export const CartPage: FC<Props> = ({ onAccToken }) => {
     if (!isAuth) {
       openModal();
     } else {
+      addBookedRooms(cartRooms);
+      removeCartRooms(cartRooms);
       dispatch({
-        type: 'product/clearCart',
+        type: 'room/clearCart',
       });
     }
   };
@@ -90,7 +122,7 @@ export const CartPage: FC<Props> = ({ onAccToken }) => {
         {!isAuth && <button onClick={() => navigate('../login')}>Log in</button>}
       </motion.h1>
 
-      {cartTotalQuantity === 0 ? (
+      {cartTotalNights === 0 ? (
         <div className={styles.container__empty__cart}>
           <h1 style={{ textAlign: 'center' }}>
             {t('cart.Your cart is empty') + ' :('}
@@ -103,8 +135,8 @@ export const CartPage: FC<Props> = ({ onAccToken }) => {
       ) : (
         <div className={styles.wrapper}>
           <div className={styles.wrapper__products}>
-            {cart.map((product: Product) => (
-              <CartItem key={product.id} product={product} />
+            {cart.map((room: Room) => (
+              <CartItem key={room.id} room={room} />
             ))}
           </div>
 
@@ -114,8 +146,8 @@ export const CartPage: FC<Props> = ({ onAccToken }) => {
             >{`$${cartTotalAmount}`}</strong>
 
             <p className={styles.totalCost__itemCount}>
-              {t('cart.Total for')} {cartTotalQuantity}{' '}
-              {cartTotalQuantity > 1 ? t('cart.items') : t('cart.item')}
+              {t('cart.Total for')} {cartTotalNights}{' '}
+              {cartTotalNights > 1 ? t('cart.nights') : t('cart.night')}
             </p>
 
             <div className={styles.totalCost__line}></div>

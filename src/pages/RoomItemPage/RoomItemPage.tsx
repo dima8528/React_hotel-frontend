@@ -3,7 +3,7 @@ import styles from './roomItemPage.module.scss';
 import classNames from 'classnames';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
-import { RoomButtonType } from 'types';
+import { RoomButtonType } from 'types/RoomButtonType';
 import { Room } from 'types/Room';
 import { useScrollToTopEffect } from 'utils';
 import { useParams } from 'react-router-dom';
@@ -33,11 +33,7 @@ export const RoomItemPage = () => {
   const [recommendedRooms, setRecommendedRooms] = useState<Room[]>([]);
 
   const [rooms, setRooms] = useState<Room[] | null>(null);
-  const cart = useSelector((state: RootState) => state.product.cart);
-
-  const isRoomInCart = roomId
-    ? cart.some((cartRoom: Room) => cartRoom.id === +roomId)
-    : false;
+  const cart = useSelector((state: RootState) => state.room.cart);
 
     const roomTypes: { [key: number]: string } = {
       1: 'Standard',
@@ -124,20 +120,24 @@ export const RoomItemPage = () => {
     setIsSelectedPhoto(index);
   };
 
-  const handleAddToCart = () => {
+  const isRoomInCart = roomId && cart.some((cartRoom: Room) => cartRoom.id === +roomId);
+
+  const handleAddToCart = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+
     if (isRoomInCart) {
-      toast.success('The room has been removed from booked ones');
+      toast.error('The room has been removed from the booked ones');
 
       dispatch({
-        type: 'Room/removeFromCart',
-        payload: room?.id,
+        type: 'room/removeFromCart',
+        payload: room,
       });
     } else {
-      toast.success('The room has been added to booked ones');
+      toast.success('The room has been added to the booked ones');
 
       dispatch({
-        type: 'Room/addToCart',
-        payload: room?.id,
+        type: 'room/addToCart',
+        payload: room,
       });
     }
   };

@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
 import styles from './navBar.module.scss';
 import { useTranslation } from 'react-i18next';
-import { ReactComponent as Logo } from 'img/icons/Logo.svg';
+import { ReactComponent as Logo } from 'img/icons/logo.svg';
 import { ReactComponent as Close } from 'img/icons/close.svg';
-import { ReactComponent as Heart } from 'img/icons/hearts.svg';
 import { ReactComponent as Cours } from 'img/icons/cours.svg';
 import { RootState } from '../../store/store';
 import { useSelector } from 'react-redux';
@@ -13,12 +12,7 @@ import { SwitchLanguageMenu } from 'components/SwitchLanguageMenu';
 export const NavBar = ({ onClose }: { onClose: () => void }) => {
   const [t] = useTranslation('global');
 
-  const favourItes = useSelector(
-    (state: RootState) => state.product.favourites,
-  );
-  const favoritesCount = favourItes.length;
-
-  const cartItes = useSelector((state: RootState) => state.product.cart);
+  const cartItes = useSelector((state: RootState) => state.room.cart);
   const cartCount = cartItes.length;
 
   return (
@@ -67,18 +61,6 @@ export const NavBar = ({ onClose }: { onClose: () => void }) => {
       {/* <div className={styles.theme}>{<Theme />}</div> */}
 
       <div className={styles.nav__bottom}>
-        <Link
-          to="/Favorites"
-          className={styles.nav__favorites}
-          onClick={onClose}
-        >
-          <div className={styles.cartIconContainer}>
-            <Heart className={styles.nav__icons} />
-            {favoritesCount > 0 && (
-              <div className={styles.favoritesItemCount}>{favoritesCount}</div>
-            )}
-          </div>
-        </Link>
         <Link to="/cart" className={styles.nav__cart} onClick={onClose}>
           <div className={styles.cartIconContainer}>
             <Cours className={styles.nav__icons} />

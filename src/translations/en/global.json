@@ -21,10 +21,9 @@
     "Сontinue shopping": "Сontinue shopping",
     "Total for": "Total for",
     "Checkout": "Checkout",
-    "item": "item",
-    "items": "items",
+    "night": "night",
+    "nights": "nights",
     "Back": "Back",
-    "Checkout is not implemented yet. Do you want to clear the Cart?": "Checkout is not implemented yet. Do you want to clear the Cart?",
     "Cancel": "Cancel",
     "Confirm": "Confirm"
   },
@@ -103,6 +102,6 @@
   "buttons": {
     "Add to booked": "Add to booked",
     "Added to booked": "Added to booked",
-    "Book the room": "Book the room"
+    "Checkout": "Checkout"
   }
 }

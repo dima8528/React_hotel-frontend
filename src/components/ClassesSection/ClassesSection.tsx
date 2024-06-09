@@ -42,15 +42,15 @@ export const ClassesSection: FC = () => {
     fetchRoomTypes();
   }, []);
 
-  const standarts = rooms.filter(
+  const standarts = [...rooms].filter(
     (room: Room) => room.roomTypeId === roomTypes[0]?.id,
   );
 
-  const luxes = rooms.filter(
+  const luxes = [...rooms].filter(
     (room: Room) => room.roomTypeId === roomTypes[1]?.id,
   );
 
-  const premiums = rooms.filter(
+  const premiums = [...rooms].filter(
     (room: Room) => room.roomTypeId === roomTypes[2]?.id,
   );
 

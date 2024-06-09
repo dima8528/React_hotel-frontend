@@ -9,4 +9,5 @@ export type Room = {
   description: string;
   available: boolean;
   images: string[];
+  nights: number;
 }

@@ -1,50 +1,47 @@
 import styles from './cartItem.module.scss';
 import { FC } from 'react';
-import { Product } from 'types';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'store/store';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ButtonSlider } from 'components/UI/ButtonSlider';
 import { getImageUrl } from 'utils/urlUtils';
+import { Room } from 'types/Room';
 
 type Props = {
-  product: Product;
+  room: Room;
 };
 
-export const CartItem: FC<Props> = ({ product }) => {
-  const cart = useSelector((state: RootState) => state.product.cart);
+export const CartItem: FC<Props> = ({ room }) => {
+  const cart = useSelector((state: RootState) => state.room.cart);
   const dispatch = useDispatch();
 
-  const cartItem: Product = cart.find(
-    (item: Product) => item.id === product.id,
+  const cartItem: Room = cart.find(
+    (item: Room) => item.id === room.id,
   );
 
   const handleRemoveFromCart = () => {
     dispatch({
-      type: 'product/removeFromCart',
-      payload: product,
+      type: 'room/removeFromCart',
+      payload: room,
     });
   };
 
-  const handleDeacreaseQuantity = () => {
+  const handleDeacreaseNights = () => {
     dispatch({
-      type: 'product/decreaseCart',
-      payload: product,
+      type: 'room/decreaseCart',
+      payload: room,
     });
   };
+
 
   const handleAddToCart = () => {
     dispatch({
-      type: 'product/addToCart',
-      payload: product,
+      type: 'room/addToCart',
+      payload: room,
     });
   };
 
-  const { pathname } = useLocation();
-  const url =
-    pathname !== `/${product.category}`
-      ? `../${product.category}/${product.itemId}`
-      : `./${product.itemId}`;
+  const url = './../rooms/' + room.id;
 
   return (
     <div className={styles.cartItem}>
@@ -53,13 +50,13 @@ export const CartItem: FC<Props> = ({ product }) => {
         <Link to={url} className={styles.cartItem__image}>
           <img
             className={styles.cartItem__productImage}
-            src={getImageUrl(product.image)}
-            alt={product.name}
+            src={getImageUrl(room.images[0])}
+            alt={room.roomName}
           />
         </Link>
 
         <Link to={url} className={styles.cartItem__description}>
-          <span className={styles.cartItem__name}>{product.name}</span>
+          <span className={styles.cartItem__name}>{`${room.roomName} – ${room.roomNumber}`}</span>
         </Link>
       </div>
 
@@ -67,10 +64,10 @@ export const CartItem: FC<Props> = ({ product }) => {
         <div className={styles.cartItem__button}>
           <ButtonSlider
             iconType={'minus'}
-            handleClick={() => handleDeacreaseQuantity()}
-            active={product.quantity === 1}
+            handleClick={() => handleDeacreaseNights()}
+            active={room.nights === 1}
           />
-          <span className={styles.cartItem__count}>{cartItem.quantity}</span>
+          <span className={styles.cartItem__count}>{cartItem.nights}</span>
           <ButtonSlider
             iconType={'plus'}
             handleClick={() => handleAddToCart()}
@@ -79,7 +76,7 @@ export const CartItem: FC<Props> = ({ product }) => {
 
         <span
           className={styles.cartItem__price}
-        >{`$${product.price * product.quantity}`}</span>
+        >{`$${room.pricePerNight * room.nights}`}</span>
       </div>
     </div>
   );

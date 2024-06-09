@@ -25,7 +25,7 @@ export const Pagination: FC<Props> = ({
 
   if (perPage) {
     dispatch({
-      type: 'product/setProductsPerPage',
+      type: 'room/setProductsPerPage',
       payload: perPage,
     });
   }

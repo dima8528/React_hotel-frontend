@@ -1,7 +1,7 @@
 import styles from './buttonPrimary.module.scss';
 import { FC } from 'react';
 import classNames from 'classnames';
-import { RoomButtonType } from 'types';
+import { RoomButtonType } from 'types/RoomButtonType';
 import { useTranslation } from 'react-i18next';
 
 interface Props {

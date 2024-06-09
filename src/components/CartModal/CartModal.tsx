@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import Modal from 'react-modal';
 import styles from './cartModal.module.scss';
-// import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 type ModalProps = {
@@ -10,16 +9,7 @@ type ModalProps = {
 };
 
 export const CartModal: FC<ModalProps> = ({ isOpen, onClose }) => {
-  // const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  // const handleClearCart = () => {
-  //   dispatch({
-  //     type: 'product/clearCart',
-  //   });
-
-  //   onClose();
-  // };
 
   return (
     <Modal

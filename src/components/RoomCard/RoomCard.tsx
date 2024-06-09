@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Variants, motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { Product, RoomButtonType } from 'types';
+import { RoomButtonType } from 'types/RoomButtonType';
 import styles from './roomCard.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { ButtonPrimary } from 'components/UI/ButtonPrimary';
@@ -20,7 +20,7 @@ export const RoomCard: FC<Props> = ({ room }) => {
   const dispatch = useDispatch();
   const [t] = useTranslation('global');
 
-  const cart = useSelector((state: RootState) => state.product.cart);
+  const cart = useSelector((state: RootState) => state.room.cart);
   const location = useLocation();
 
   const roomTypes: { [key: number]: string } = {
@@ -36,24 +36,24 @@ export const RoomCard: FC<Props> = ({ room }) => {
   const roomNumber = String(room.roomNumber);
 
   const isProductInCart = cart.some(
-    (cartProduct: Product) => cartProduct.id === room.id,
+    (cartRoom: Room) => cartRoom.id === room.id,
   );
 
   const handleAddToCart = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
     if (isProductInCart) {
-      toast.success('The room has been removed from booked ones');
+      toast.error('The room has been removed from the booked ones');
 
       dispatch({
-        type: 'product/removeFromCart',
+        type: 'room/removeFromCart',
         payload: room,
       });
     } else {
-      toast.success('The room has been added to booked ones');
+      toast.success('The room has been added to the booked ones');
 
       dispatch({
-        type: 'product/addToCart',
+        type: 'room/addToCart',
         payload: room,
       });
     }
@@ -61,7 +61,6 @@ export const RoomCard: FC<Props> = ({ room }) => {
 
   const url = useMemo(() => {
     const basePath = `../rooms`;
-    // /${roomTypeName.toLowerCase()}
     const roomPath = `/${room.id}`;
     const currentPath = location.pathname;
 

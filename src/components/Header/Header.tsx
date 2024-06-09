@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'store/store';
 import { NavBar } from 'components/NavBar';
 import { SwitchLanguageHeader } from 'components/SwitchLanguageHeader';
-import { ReactComponent as Logo } from 'img/icons/Logo.svg';
+import { ReactComponent as Logo } from 'img/icons/logo.svg';
 import { ReactComponent as Menus } from 'img/icons/burger-menu.svg';
 import { ReactComponent as Cours } from 'img/icons/cours.svg';
 import { ReactComponent as Auth } from 'img/icons/avatar.svg';
@@ -22,22 +22,17 @@ export const Header: FC<Props> = ({ accToken }) => {
   const [isMenuShow, setIsMenuShow] = useState(false);
   const [t] = useTranslation('global');
 
-  const cartItes = useSelector((state: RootState) => state.product.cart);
+  const cartItes = useSelector((state: RootState) => state.room.cart);
   const cartCount = cartItes.length;
   // const [isAuth, setIsAuth] = useState<string | null>(null);
 
   useEffect(() => {
     const token = Cookies.get('accessToken') || null;
-    console.log('Token fetched from cookies:', token); // Логирование для отладки
-    // setIsAuth(token);
+    console.log('Token fetched from cookies:', token);
   }, []);
-
-  console.log('accToken', accToken); // Логирование для отладки
 
 
   const auth_url = accToken ? '/profile' : '/login';
-  // console.log('isAuth', isAuth); // Логирование для отладки
-  // console.log('auth_url', auth_url); // Логирование для отладки
 
   const toggleMenu = () => {
     setIsMenuShow(!isMenuShow);
@@ -67,11 +62,11 @@ export const Header: FC<Props> = ({ accToken }) => {
               {t('header.rooms')}
             </NavLink>
 
-            {/* <NavLink className={getLinkClass} to="/tablets">
-              {t('header.tablets')}
+            <NavLink className={getLinkClass} to="/about-us">
+              {t('header.about')}
             </NavLink>
 
-            <NavLink className={getLinkClass} to="/accessories">
+            {/* <NavLink className={getLinkClass} to="/accessories">
               {t('header.accessories')}
             </NavLink> */}
           </div>

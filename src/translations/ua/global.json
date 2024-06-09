@@ -19,12 +19,11 @@
     "Cart": "Кошик",
     "Your cart is empty": "Ваш кошик порожній",
     "Сontinue shopping": "Продовжити покупки",
-    "Total for": "Загальна за",
-    "Checkout": "Оформити замовлення",
-    "item": "позицію",
-    "items": "позиції",
+    "Total for": "Загальна кількість",
+    "Checkout": "Забронювати",
+    "night": "доба",
+    "nights": "діб",
     "Back": "Назад",
-    "Checkout is not implemented yet. Do you want to clear the Cart?": "Оформлення замовлення ще не реалізовано. Бажаєте очистити кошик?",
     "Cancel": "Скасувати",
     "Confirm": "Підтвердити"
   },
@@ -98,6 +97,6 @@
   "buttons": {
     "Add to booked": "Забронювати",
     "Added to booked": "Заброньовано",
-    "Book the room": "Забронювати"
+    "Checkout": "Забронювати"
   }
 }
