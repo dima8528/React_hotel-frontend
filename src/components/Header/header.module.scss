@@ -192,7 +192,7 @@
   width: 64px;
 
   border-left: 1px solid var(--elements-color);
-  transition: border-bottom 0.3s;
+  transition: $effectDuration;
   display: none;
 
   @include on-desktop {
@@ -408,7 +408,7 @@
   align-items: center;
   border-left: 1px solid var(--elements-color);
   border-bottom: 1px solid transparent;
-  transition: border-bottom 0.3s ease;
+  transition: $effectDuration;
 
   &:hover {
     border-bottom: 4px solid var(--primary-color);
@@ -436,6 +436,7 @@
 
 .theme {
   border-left: 1px solid var(--elements-color);
+  transition: $effectDuration;
 }
 
 .language_switcher {

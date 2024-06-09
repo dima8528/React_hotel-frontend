@@ -7,6 +7,7 @@
   align-items: center;
   height: 48px;
   border-left: 1px solid var(--elements-color);
+  transition: $effectDuration;
 
   @include on-desktop {
     height: 64px;
