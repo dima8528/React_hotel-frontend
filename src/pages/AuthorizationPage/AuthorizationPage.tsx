@@ -131,6 +131,7 @@ const RegisterForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const navigate = useNavigate();
 
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -146,6 +147,10 @@ const RegisterForm = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ firstName, lastName, email, password }),
+    })
+    .then(() => {
+      toast.success('Please check your email');
+      navigate('/');
     })
     .catch((err) => {
       console.log(err);
