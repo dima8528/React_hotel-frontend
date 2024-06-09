@@ -4,9 +4,7 @@ import { User } from 'types/User';
 import { toast } from 'react-toastify';
 import Cookies from 'js-cookie';
 
-// export const API_URL = 'https://phone-catalog-api-s7t8.onrender.com';
-// export const API_URL = 'https://node-hotel-backend.onrender.com';
-export const API_URL = 'http://localhost:5005';
+export const API_URL = 'https://node-hotel-backend.onrender.com';
 
 export function getRooms(): Promise<Room[]> {
   return fetch(API_URL + '/rooms').then(response => response.json());
