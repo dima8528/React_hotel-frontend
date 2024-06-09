@@ -63,8 +63,10 @@ export async function getRoomsByRoomType(
   }
 }
 
-export const getOneUser = async (email: string): Promise<User> => {
+export const getOneUser = async (): Promise<User> => {
   try {
+    const email = localStorage.getItem('email');
+
     const response = await fetch(`${API_URL}/users`, {
       method: 'POST',
       headers: {
@@ -82,6 +84,30 @@ export const getOneUser = async (email: string): Promise<User> => {
     return data;
   } catch (error) {
     toast.error('Failed to fetch user');
+    throw error;
+  }
+};
+
+export const doDeposit = async (amount: number) => {
+  const email = localStorage.getItem('email');
+
+  try {
+    const response = await fetch(`${API_URL}/users/money`, {
+      method: 'PATCH',
+      headers: {
+        "Authorization": `Bearer ${Cookies.get('accessToken')}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, amount }),
+    });
+    if (!response.ok) {
+      throw new Error('Failed to deposit');
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    toast.error('Failed to deposit');
     throw error;
   }
 };

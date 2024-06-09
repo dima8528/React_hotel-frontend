@@ -88,5 +88,9 @@
     "Add to booked": "Add to booked",
     "Added to booked": "Added to booked",
     "Checkout": "Checkout"
+  },
+  "profile": {
+    "deposit": "Deposit",
+    "balance": "Balance"
   }
 }

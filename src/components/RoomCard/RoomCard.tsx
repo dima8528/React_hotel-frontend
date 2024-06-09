@@ -14,9 +14,10 @@ import { API_URL } from 'api';
 
 type Props = {
   room: Room;
+  isPrimaryButtonShown?: boolean;
 };
 
-export const RoomCard: FC<Props> = ({ room }) => {
+export const RoomCard: FC<Props> = ({ room, isPrimaryButtonShown }) => {
   const dispatch = useDispatch();
   const [t] = useTranslation('global');
 
@@ -38,6 +39,12 @@ export const RoomCard: FC<Props> = ({ room }) => {
   const isProductInCart = cart.some(
     (cartRoom: Room) => cartRoom.id === room.id,
   );
+
+  let isShown = true;
+
+  if (isPrimaryButtonShown) {
+    isShown = isPrimaryButtonShown;
+  }
 
   const handleAddToCart = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -154,15 +161,17 @@ export const RoomCard: FC<Props> = ({ room }) => {
             </div>
 
             <div className={styles.buttons__container}>
-              <ButtonPrimary
-                textForPrimaryButton={
-                  isProductInCart
-                    ? RoomButtonType.ADDED
-                    : RoomButtonType.ADD
-                }
-                callback={handleAddToCart}
-                isAvailable={room.available}
-              />
+              {isShown && (
+                <ButtonPrimary
+                  textForPrimaryButton={
+                    isProductInCart
+                      ? RoomButtonType.ADDED
+                      : RoomButtonType.ADD
+                  }
+                  callback={handleAddToCart}
+                  isAvailable={room.available}
+                />
+              )}
             </div>
           </div>
         </article>

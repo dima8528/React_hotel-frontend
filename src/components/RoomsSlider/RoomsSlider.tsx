@@ -9,9 +9,10 @@ type Props = {
   rooms: Room[];
   title: string;
   loading: boolean;
+  isPrimaryButtonShown?: boolean;
 };
 
-export const RoomsSlider: FC<Props> = ({ title, rooms, loading }) => {
+export const RoomsSlider: FC<Props> = ({ title, rooms, loading, isPrimaryButtonShown }) => {
   const [activeArrowLeft, setActiveArrowLeft] = useState(false);
   const [activeArrowRight, setActiveArrowRight] = useState(true);
   const slider = useRef<HTMLUListElement>(null);
@@ -173,7 +174,7 @@ export const RoomsSlider: FC<Props> = ({ title, rooms, loading }) => {
         ) : (
           rooms.map(room => (
             <li key={room.id}>
-              <RoomCard room={room} />
+              <RoomCard room={room} isPrimaryButtonShown={isPrimaryButtonShown} />
             </li>
           ))
         )}

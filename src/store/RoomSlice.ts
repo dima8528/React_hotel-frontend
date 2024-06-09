@@ -8,6 +8,7 @@ export interface RoomState {
   cart: Room[];
   cartTotalNights: number;
   cartTotalAmount: number;
+  email: string;
   isLogedIn: boolean;
 }
 
@@ -16,6 +17,7 @@ const initialState: RoomState = {
   cart: [],
   cartTotalNights: 0,
   cartTotalAmount: 0,
+  email: '',
   isLogedIn: false,
 };
 
@@ -127,6 +129,10 @@ const roomSlice = createSlice({
       saveState('cart', state.cart);
   },
 
+    setEmail(state, action: PayloadAction<string>) {
+      state.email = action.payload;
+    },
+
     toggleIsLogedIn(state) {
       state.isLogedIn = !state.isLogedIn;
     }
@@ -134,6 +140,8 @@ const roomSlice = createSlice({
 });
 
 export const selectIsLogedIn = (state: RootState) => state.room.isLogedIn;
+
+export const selectEmail = (state: RootState) => state.room.email;
 
 export const {
   setCart,
@@ -143,6 +151,7 @@ export const {
   decreaseCart,
   getTotals,
   clearCart,
+  setEmail,
   toggleIsLogedIn
 } = roomSlice.actions;
 

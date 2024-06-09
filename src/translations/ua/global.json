@@ -85,5 +85,9 @@
     "Add to booked": "Забронювати",
     "Added to booked": "Заброньовано",
     "Checkout": "Забронювати"
+  },
+  "profile": {
+    "deposit": "Поповнити баланс",
+    "balance": "Баланс"
   }
 }

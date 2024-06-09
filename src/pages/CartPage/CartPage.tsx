@@ -1,4 +1,4 @@
-import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RoomButtonType } from 'types/RoomButtonType';
 import { RootState } from 'store/store';
 import styles from './cartPage.module.scss';
@@ -14,15 +14,10 @@ import { LottieAnimation } from 'components/UI/LottieAnimation';
 import * as animationData from 'animations/EmptyBookingList.json';
 import { motion } from 'framer-motion';
 import { titleVariants } from 'utils/titleVariants';
-import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { Room } from 'types/Room';
 
-type Props = {
-  onAccToken: Dispatch<SetStateAction<string | null>>;
-};
-
-export const CartPage: FC<Props> = ({ onAccToken }) => {
+export const CartPage= () => {
   const { cart, cartTotalAmount, cartTotalNights: cartTotalNights } = useSelector(
     (state: RootState) => state.room,
   );
@@ -70,8 +65,6 @@ export const CartPage: FC<Props> = ({ onAccToken }) => {
   console.log('isAuth', isAuth);
   console.log('auth_url', auth_url);
 
-  const navigate = useNavigate();
-
   useEffect(() => {
     dispatch({ type: 'room/getTotals' });
   }, [cart, dispatch]);
@@ -100,8 +93,6 @@ export const CartPage: FC<Props> = ({ onAccToken }) => {
     }
   };
 
-  const authResult = isAuth ? 'You are autorized' : 'You are not autorized';
-
   return (
     <div className={styles.container}>
       <ButtonBack textForBackButton={t('booking-list.Back')} />
@@ -113,13 +104,6 @@ export const CartPage: FC<Props> = ({ onAccToken }) => {
         animate="visible"
       >
         {t('booking-list.Booking list')}
-        <span style={{ color: 'purple', fontSize: '24px', margin: '0 30px', alignSelf: 'center' }}>{authResult}</span>
-        {isAuth && <button onClick={() => {
-          Cookies.remove('accessToken');
-          onAccToken(null);
-          navigate('/');
-        }}>Log out</button>}
-        {!isAuth && <button onClick={() => navigate('../login')}>Log in</button>}
       </motion.h1>
 
       {cartTotalNights === 0 ? (

@@ -6,6 +6,7 @@ import { API_URL } from 'api';
 import { toast } from 'react-toastify';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import { useDispatch } from 'react-redux';
 
 interface PasswordInputProps {
   placeholder: string;
@@ -59,6 +60,7 @@ const LoginForm: FC<LoginProps> = ({ onAccToken }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleLoginSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -75,9 +77,17 @@ const LoginForm: FC<LoginProps> = ({ onAccToken }) => {
 
       if (response.ok) {
         const data = await response.json();
-        Cookies.set('accessToken', data.accessToken, { expires: 1 });
+        Cookies.set('accessToken', data.accessToken, { expires: 0.0416 });
         onAccToken(data.accessToken);
         navigate(-1);
+
+        dispatch({
+          type: 'email/setEmail',
+          payload: email,
+        });
+
+        localStorage.setItem('email', email);
+
         console.log('ok');
       } else {
         toast.error('Invalid login or password. Try again');
