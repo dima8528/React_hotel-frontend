@@ -16,12 +16,12 @@ export const ProfilePage = () => {
     localStorage.setItem('bookedRooms', JSON.stringify(bookedRooms));
   }, [bookedRooms]);
 
-  // useEffect(() => {
-  //   getOneUser('dmytro.haidash.work@gmail.com')
-  //     .then((data) => setUser(data));
-  // }, []);
+  useEffect(() => {
+    getOneUser('dmytro.haidash.work@gmail.com')
+      .then((data) => setUser(data));
+  }, []);
 
-  if (!user) {
+  if (user) {
     console.log(user);
   }
 

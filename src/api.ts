@@ -2,6 +2,7 @@ import { RoomType } from 'types/RoomType';
 import { Room } from 'types/Room';
 import { User } from 'types/User';
 import { toast } from 'react-toastify';
+import Cookies from 'js-cookie';
 
 // export const API_URL = 'https://phone-catalog-api-s7t8.onrender.com';
 // export const API_URL = 'https://node-hotel-backend.onrender.com';
@@ -67,7 +68,7 @@ export const getOneUser = async (email: string): Promise<User> => {
     const response = await fetch(`${API_URL}/users`, {
       method: 'POST',
       headers: {
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJkbXl0cm8uaGFpZGFzaC53b3JrQGdtYWlsLmNvbSIsImlhdCI6MTcxNzg1ODkzNCwiZXhwIjoxNzE3ODU4OTM5fQ.z5ZhtZL9theJb8aJsLWFB_cs9-iluLSg2dcgQnKNCDg',
+        "Authorization": `Bearer ${Cookies.get('accessToken')}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ email }),
