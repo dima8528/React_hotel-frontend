@@ -21,7 +21,9 @@
     "Back": "Назад",
     "You are not authorized yet. Do you want to login or create an acount?": "Ви ще не авторизовані. Бажаєте увійти або створити акаунт?",
     "Cancel": "Скасувати",
-    "Confirm": "Підтвердити"
+    "Confirm": "Підтвердити",
+    "Unsufficient balance": "Недостатньо коштів",
+    "Booking completed": "Бронювання завершено"
   },
   "home": {
     "Welcome to Admin Hotel!": "Вітаємо у готелі Admin!",

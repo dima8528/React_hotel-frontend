@@ -79,7 +79,7 @@ const LoginForm: FC<LoginProps> = ({ onAccToken }) => {
         const data = await response.json();
         Cookies.set('accessToken', data.accessToken, { expires: 0.0416 });
         onAccToken(data.accessToken);
-        navigate(-1);
+        navigate('/');
 
         dispatch({
           type: 'email/setEmail',

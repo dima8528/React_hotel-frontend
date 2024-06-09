@@ -21,7 +21,9 @@
     "Back": "Back",
     "You are not authorized yet. Do you want to login or create an acount?": "You are not authorized yet. Do you want to login or create an acount?",
     "Cancel": "Cancel",
-    "Confirm": "Confirm"
+    "Confirm": "Confirm",
+    "Unsufficient balance": "Unsufficient balance",
+    "Booking completed": "Booking completed"
   },
   "home": {
     "Welcome to Admin Hotel!": "Welcome to Admin Hotel!",

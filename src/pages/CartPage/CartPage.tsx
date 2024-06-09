@@ -16,6 +16,10 @@ import { motion } from 'framer-motion';
 import { titleVariants } from 'utils/titleVariants';
 import Cookies from 'js-cookie';
 import { Room } from 'types/Room';
+import { User } from 'types/User';
+import { getOneUser } from 'api';
+import { toast } from 'react-toastify';
+import { doDeposit } from 'api';
 
 export const CartPage= () => {
   const { cart, cartTotalAmount, cartTotalNights: cartTotalNights } = useSelector(
@@ -24,6 +28,11 @@ export const CartPage= () => {
   const dispatch = useDispatch();
   const [t] = useTranslation('global');
   const [isAuth, setIsAuth] = useState<string | null>(null);
+
+  // useEffect(() => {
+  //   getOneUser()
+  //     .then((data) => setUser(data));
+  // }, []);
 
   const [bookedRooms, setBookedRooms] = useState<Room[]>(() => {
     const savedItems = localStorage.getItem('bookedRooms');
@@ -61,10 +70,6 @@ export const CartPage= () => {
     setIsAuth(token);
   }, []);
 
-  const auth_url = isAuth ? '/profile' : '/login';
-  console.log('isAuth', isAuth);
-  console.log('auth_url', auth_url);
-
   useEffect(() => {
     dispatch({ type: 'room/getTotals' });
   }, [cart, dispatch]);
@@ -81,17 +86,32 @@ export const CartPage= () => {
     setModalIsOpen(false);
   };
 
-  const handleCheckout = () => {
+  const handleCheckout = async () => {
     if (!isAuth) {
       openModal();
     } else {
-      addBookedRooms(cartRooms);
-      removeCartRooms(cartRooms);
-      dispatch({
-        type: 'room/clearCart',
-      });
+      try {
+        const user = await getOneUser();
+
+        if (user && cartTotalAmount > user.balance) {
+          toast.error(t('booking-list.Unsufficient balance'));
+          return;
+        }
+
+        addBookedRooms(cartRooms);
+        removeCartRooms(cartRooms);
+        dispatch({
+          type: 'room/clearCart',
+        });
+        await doDeposit(cartTotalAmount * -1);
+        toast.success(t('booking-list.Booking completed'));
+      } catch (error) {
+        console.error('Error during checkout:', error);
+        toast.error(t('booking-list.Checkout failed'));
+      }
     }
   };
+
 
   return (
     <div className={styles.container}>
