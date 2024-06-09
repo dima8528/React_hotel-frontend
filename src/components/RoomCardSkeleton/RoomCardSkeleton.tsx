@@ -1,5 +1,5 @@
 import Skeleton from 'react-loading-skeleton';
-import styles from './productCardSkeleton.module.scss';
+import styles from './roomCardSkeleton.module.scss';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { FC } from 'react';
 import { useTheme } from 'hooks/useTheme';

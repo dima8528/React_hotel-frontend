@@ -3,7 +3,7 @@ import styles from './navBar.module.scss';
 import { useTranslation } from 'react-i18next';
 import { ReactComponent as Logo } from 'img/icons/logo.svg';
 import { ReactComponent as Close } from 'img/icons/close.svg';
-import { ReactComponent as Cours } from 'img/icons/cours.svg';
+import { ReactComponent as Cours } from 'img/icons/list1.svg';
 import { RootState } from '../../store/store';
 import { useSelector } from 'react-redux';
 import { SwitchLanguageMenu } from 'components/SwitchLanguageMenu';
@@ -35,22 +35,13 @@ export const NavBar = ({ onClose }: { onClose: () => void }) => {
             </Link>
           </li>
           <li className={styles.nav__item}>
-            <Link to="/phones" className={styles.nav__link} onClick={onClose}>
-              {t('header.phones')}
+            <Link to="/rooms" className={styles.nav__link} onClick={onClose}>
+              {t('header.rooms')}
             </Link>
           </li>
           <li className={styles.nav__item}>
-            <Link to="/tablets" className={styles.nav__link} onClick={onClose}>
-              {t('header.tablets')}
-            </Link>
-          </li>
-          <li className={styles.nav__item}>
-            <Link
-              to="/accessories"
-              className={styles.nav__link}
-              onClick={onClose}
-            >
-              {t('header.accessories')}
+            <Link to="/about-us" className={styles.nav__link} onClick={onClose}>
+              {t('header.about')}
             </Link>
           </li>
         </ul>
@@ -58,10 +49,8 @@ export const NavBar = ({ onClose }: { onClose: () => void }) => {
 
       <div className={styles.preferences}>{<SwitchLanguageMenu />}</div>
 
-      {/* <div className={styles.theme}>{<Theme />}</div> */}
-
       <div className={styles.nav__bottom}>
-        <Link to="/cart" className={styles.nav__cart} onClick={onClose}>
+        <Link to="/booking-list" className={styles.nav__cart} onClick={onClose}>
           <div className={styles.cartIconContainer}>
             <Cours className={styles.nav__icons} />
             {cartCount > 0 && (

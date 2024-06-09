@@ -84,6 +84,7 @@ html[data-theme='light'] {
   --white-color: #ffffff;
   --green-color: #27ae60;
   --red-color: #eb5757;
+  --toast-container-theme: 'light';
 }
 
 html[data-theme='dark'] {
@@ -167,6 +168,8 @@ html[data-theme='dark'] {
   --white-color: #ffffff;
   --green-color: #27ae60;
   --red-color: #eb5757;
+
+  --toast-container-theme: 'dark';
 }
 
 $background-color: #fafbfc;

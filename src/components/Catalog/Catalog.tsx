@@ -4,7 +4,7 @@ import { Room } from 'types/Room';
 import { useTranslation } from 'react-i18next';
 import { Filter } from 'components/Filter';
 import { RoomCard } from 'components/RoomCard';
-import { CardSkeleton } from 'components/ProductCardSkeleton/ProductCardSkeleton';
+import { CardSkeleton } from 'components/RoomCardSkeleton/RoomCardSkeleton';
 // import { CardSkeleton } from 'components/ProductCardSkeleton';
 // import { CardSkeleton } from 'components/ProductCardSkeleton';
 

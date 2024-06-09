@@ -89,6 +89,7 @@
   font-size: 12px;
   line-height: 11px;
   font-weight: 800;
+  text-transform: uppercase;
 
   border-bottom: 1px solid transparent;
   transition: border-bottom 0.5s ease;
@@ -119,10 +120,9 @@
   height: 48px;
 }
 
-.nav__favorites,
 .nav__cart {
   height: 100%;
-  width: 50%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

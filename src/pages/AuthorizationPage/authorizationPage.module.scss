@@ -44,7 +44,6 @@ form {
 input {
   padding: 10px;
   border: 1px solid var(--select-border-color);
-  border-radius: 5px;
   width: 100%;
   box-sizing: border-box;
   font-size: 14px;
@@ -59,7 +58,6 @@ button {
   transition: $effectDuration;
   color: white;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
 }
@@ -88,7 +86,6 @@ button:hover {
   font-size: 14px;
   padding: 10px;
   border: 1px solid var(--aut-swithc-btn-color);
-  border-radius: 5px;
   width: 250px;
   margin: 10px auto;
   transition:

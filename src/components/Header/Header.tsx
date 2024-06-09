@@ -9,7 +9,7 @@ import { NavBar } from 'components/NavBar';
 import { SwitchLanguageHeader } from 'components/SwitchLanguageHeader';
 import { ReactComponent as Logo } from 'img/icons/logo.svg';
 import { ReactComponent as Menus } from 'img/icons/burger-menu.svg';
-import { ReactComponent as Cours } from 'img/icons/cours.svg';
+import { ReactComponent as Cours } from 'img/icons/list1.svg';
 import { ReactComponent as Auth } from 'img/icons/avatar.svg';
 import { Theme } from 'components/Theme/Theme';
 import Cookies from 'js-cookie';
@@ -65,10 +65,6 @@ export const Header: FC<Props> = ({ accToken }) => {
             <NavLink className={getLinkClass} to="/about-us">
               {t('header.about')}
             </NavLink>
-
-            {/* <NavLink className={getLinkClass} to="/accessories">
-              {t('header.accessories')}
-            </NavLink> */}
           </div>
         </nav>
       </div>
@@ -93,23 +89,8 @@ export const Header: FC<Props> = ({ accToken }) => {
           </NavLink>
         </div>
 
-        {/* <NavLink
-          to="/Favorites"
-          className={({ isActive }) =>
-            classNames(styles.favorites, { [styles.is_active]: isActive })
-          }
-        >
-          <div className={styles.favoritesIconContainer}>
-            <Heart className={styles.favorites__logo} />
-
-            {favoritesCount > 0 && (
-              <div className={styles.favoritesItemCount}>{favoritesCount}</div>
-            )}
-          </div>
-        </NavLink> */}
-
         <NavLink
-          to="/cart"
+          to="/booking-list"
           className={({ isActive }) =>
             classNames(styles.cart, { [styles.is_active]: isActive })
           }

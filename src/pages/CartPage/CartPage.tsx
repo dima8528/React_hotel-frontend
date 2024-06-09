@@ -11,7 +11,7 @@ import { CartItem } from 'components/CartIem';
 import { ButtonPrimary } from 'components/UI/ButtonPrimary';
 import { ButtonBack } from 'components/UI/ButtonBack';
 import { LottieAnimation } from 'components/UI/LottieAnimation';
-import * as animationData from 'animations/EmptyCart.json';
+import * as animationData from 'animations/EmptyBookingList.json';
 import { motion } from 'framer-motion';
 import { titleVariants } from 'utils/titleVariants';
 import { useNavigate } from 'react-router-dom';
@@ -104,7 +104,7 @@ export const CartPage: FC<Props> = ({ onAccToken }) => {
 
   return (
     <div className={styles.container}>
-      <ButtonBack textForBackButton={t('cart.Back')} />
+      <ButtonBack textForBackButton={t('booking-list.Back')} />
 
       <motion.h1
         className={styles.title}
@@ -112,7 +112,7 @@ export const CartPage: FC<Props> = ({ onAccToken }) => {
         initial="initial"
         animate="visible"
       >
-        {t('cart.Cart')}
+        {t('booking-list.Booking list')}
         <span style={{ color: 'purple', fontSize: '24px', margin: '0 30px', alignSelf: 'center' }}>{authResult}</span>
         {isAuth && <button onClick={() => {
           Cookies.remove('accessToken');
@@ -124,12 +124,9 @@ export const CartPage: FC<Props> = ({ onAccToken }) => {
 
       {cartTotalNights === 0 ? (
         <div className={styles.container__empty__cart}>
-          <h1 style={{ textAlign: 'center' }}>
-            {t('cart.Your cart is empty') + ' :('}
-          </h1>
           <LottieAnimation animationData={animationData} />
           <Link to="/" className={styles.button}>
-            {t('cart.Сontinue shopping')}
+            {t('booking-list.Сontinue booking')}
           </Link>
         </div>
       ) : (
@@ -146,8 +143,8 @@ export const CartPage: FC<Props> = ({ onAccToken }) => {
             >{`$${cartTotalAmount}`}</strong>
 
             <p className={styles.totalCost__itemCount}>
-              {t('cart.Total for')} {cartTotalNights}{' '}
-              {cartTotalNights > 1 ? t('cart.nights') : t('cart.night')}
+              {t('booking-list.Total for')} {cartTotalNights}{' '}
+              {cartTotalNights > 1 ? t('booking-list.nights') : t('booking-list.night')}
             </p>
 
             <div className={styles.totalCost__line}></div>

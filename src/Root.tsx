@@ -32,7 +32,7 @@ export const Root = () => {
           <Route path="/rooms/:roomId" element={<RoomItemPage />}></Route>
 
           <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/cart" element={<CartPage onAccToken={setAccToken} />} />
+          <Route path="/booking-list" element={<CartPage onAccToken={setAccToken} />} />
 
           <Route path="/activate/:token" element={<ActivatePage />} />
 

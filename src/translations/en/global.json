@@ -2,6 +2,7 @@
   "header": {
     "home": "HOME",
     "rooms": "ROOMS",
+    "about": "About us",
     "cart": "Cart"
   },
   "footer": {
@@ -9,21 +10,16 @@
     "Rights": "Rights",
     "Contacts": "Contacts"
   },
-  "search": {
-    "Search": "Search",
-    "There are no products matching the query!": "There are no products matching the query!",
-    "Search results": "Search results",
-    "Try again": "Try again"
-  },
-  "cart": {
-    "Cart": "Cart",
-    "Your cart is empty": "Your cart is empty",
-    "Сontinue shopping": "Сontinue shopping",
+  "booking-list": {
+    "Booking list": "Booking list",
+    "Your booking list is empty": "Your booking list is empty",
+    "Сontinue booking": "Сontinue booking",
     "Total for": "Total for",
     "Checkout": "Checkout",
     "night": "night",
     "nights": "nights",
     "Back": "Back",
+    "You are not authorized yet. Do you want to login or create an acount?": "You are not authorized yet. Do you want to login or create an acount?",
     "Cancel": "Cancel",
     "Confirm": "Confirm"
   },
@@ -53,19 +49,8 @@
     "Add to cart": "Add to cart",
     "Added to cart": "Added to cart",
     "Back": "Back",
-    "Screen": "Screen",
-    "Processor": "Processor",
-    "RAM": "RAM",
-    "Resolution": "Resolution",
     "Description": "Description",
-    "Available colors": "Available colors",
-    "Select capacity": "Select capacity",
     "About": "About",
-    "Tech specs": "Tech specs",
-    "Built in memory": "Built in memory",
-    "Camera": "Camera",
-    "Zoom": "Zoom",
-    "Cell": "Cell",
     "Specifications": "Specifications"
   },
   "roomTypes": {

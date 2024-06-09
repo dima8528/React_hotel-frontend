@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, FC } from 'react';
 import { Room } from 'types/Room';
 import './roomsSlider.scss';
 import { RoomCard } from 'components/RoomCard';
-import { CardSkeleton } from 'components/ProductCardSkeleton/ProductCardSkeleton';
+import { CardSkeleton } from 'components/RoomCardSkeleton/RoomCardSkeleton';
 // import { CardSkeleton } from 'components/ProductCardSkeleton';
 
 type Props = {
