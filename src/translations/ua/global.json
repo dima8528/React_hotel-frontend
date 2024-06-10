@@ -54,7 +54,7 @@
     "Description": "Опис",
     "Available colors": "Доступні кольори",
     "Select capacity": "Оберіть значення",
-    "About": "Про товар",
+    "About": "Про номер",
     "Specifications": "Характеристики"
   },
   "roomTypes": {
@@ -90,6 +90,7 @@
   },
   "profile": {
     "deposit": "Поповнити баланс",
-    "balance": "Баланс"
+    "balance": "Баланс",
+    "logout": "Вийти"
   }
 }

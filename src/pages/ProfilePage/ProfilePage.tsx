@@ -20,7 +20,7 @@ export const ProfilePage: FC<Props> = ({ onAccToken }) => {
   const [isloading, setIsLoading] = useState(true);
   const [balance, setBalance] = useState(0);
   const [amount, setAmount] = useState(0);
-  const [t] = useTranslation();
+  const [t] = useTranslation('global');
   const navigate = useNavigate();
 
   const userRole = user?.role || 'USER';
@@ -89,6 +89,7 @@ export const ProfilePage: FC<Props> = ({ onAccToken }) => {
 
       <div className={styles.operations}>
         <div className={styles.balance}>
+          {/* {t('roomTypes.Standard')}: {user?.balance} */}
           {t('profile.balance')}: {user?.balance}
         </div>
 
@@ -100,7 +101,7 @@ export const ProfilePage: FC<Props> = ({ onAccToken }) => {
       </div>
 
       <div className={styles.ex_container}>
-        <button className={styles.exit} onClick={handleExit}>{t('profile.exit')}</button>
+        <button className={styles.exit} onClick={handleExit}>{t('profile.logout')}</button>
       </div>
 
       <div className={styles.booked_rooms}>

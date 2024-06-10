@@ -93,6 +93,7 @@
   },
   "profile": {
     "deposit": "Deposit",
-    "balance": "Balance"
+    "balance": "Balance",
+    "logout": "Logout"
   }
 }
