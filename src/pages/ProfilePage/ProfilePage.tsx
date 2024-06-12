@@ -2,7 +2,7 @@ import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
 import styles from './profilePage.module.scss';
 import { User } from 'types/User';
 import { Room } from 'types/Room';
-import { getOneUser } from 'api';
+import { getBooked, getOneUser } from 'api';
 import { ReactComponent as Auth } from 'img/icons/avatar.svg';
 import { RoomsSlider } from 'components/RoomsSlider';
 import { useTranslation } from 'react-i18next';
@@ -18,21 +18,14 @@ type Props = {
 export const ProfilePage: FC<Props> = ({ onAccToken }) => {
   const [user, setUser] = useState<User | null>(null);
   const [isloading, setIsLoading] = useState(true);
-  const [balance, setBalance] = useState(0);
-  const [amount, setAmount] = useState(0);
+  const [balance, setBalance] = useState('');
+  const [amount, setAmount] = useState('');
   const [t] = useTranslation('global');
   const navigate = useNavigate();
 
   const userRole = user?.role || 'USER';
 
-  const [bookedRooms] = useState<Room[]>(() => {
-    const savedItems = localStorage.getItem('bookedRooms');
-    return savedItems ? JSON.parse(savedItems) : [];
-  });
-
-  useEffect(() => {
-    localStorage.setItem('bookedRooms', JSON.stringify(bookedRooms));
-  }, [bookedRooms]);
+  const [bookedRooms, setBookedRooms] = useState<Room[]>([]);
 
   useEffect(() => {
     getOneUser()
@@ -40,15 +33,35 @@ export const ProfilePage: FC<Props> = ({ onAccToken }) => {
       .finally(() => setIsLoading(false));
   }, [balance]);
 
-  if (user) {
-    console.log(user);
-  }
+  const userId = user ? user.id : 0;
+
+  useEffect(() => {
+    getBooked(userId).then((res) => {
+      const { bookings } = res;
+      setBookedRooms([...bookings]);
+
+      console.log('bookedRooms', bookings);
+
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+    }).catch(() => { });
+  }, [userId]);
 
   const handleDeposit = async (amount: number) => {
     const newBalance = await doDeposit(amount);
     setBalance(newBalance);
 
     toast.success(`${amount}$ has been added`);
+  }
+
+  const handleDepositSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    await handleDeposit(+amount);
+    setAmount('');
+  }
+
+  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.replace(/\D/g, '');
+    setAmount(value);
   }
 
   const getProfileRoleClass = (role: string) => {
@@ -84,20 +97,27 @@ export const ProfilePage: FC<Props> = ({ onAccToken }) => {
           <div className={styles.profile__email}>{user?.email}</div>
         </div>
 
-        <div className={styles.profile__divider}/>
+        <div className={styles.profile__divider} />
       </div>
 
       <div className={styles.operations}>
         <div className={styles.balance}>
-          {/* {t('roomTypes.Standard')}: {user?.balance} */}
           {t('profile.balance')}: {user?.balance}
         </div>
 
-        <div className={styles.doDeposit}>
-          <input className={styles.input} type="text" value={amount} onChange={(e) => setAmount(Number(e.target.value))} placeholder="Amount" />
+        <form className={styles.doDeposit} onSubmit={handleDepositSubmit}>
+          <input
+            className={styles.input}
+            type="text"
+            value={amount}
+            onChange={handleAmountChange}
+            placeholder="Amount"
+          />
 
-          <button className={styles.deposit} onClick={() => handleDeposit(amount)}>{t('profile.deposit')}</button>
-        </div>
+          <button className={styles.deposit} type="submit">
+            {t('profile.deposit')}
+          </button>
+        </form>
       </div>
 
       <div className={styles.ex_container}>

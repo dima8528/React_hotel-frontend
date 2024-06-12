@@ -12,13 +12,16 @@ type Props = {
   isPrimaryButtonShown?: boolean;
 };
 
-export const RoomsSlider: FC<Props> = ({ title, rooms, loading, isPrimaryButtonShown }) => {
+export const RoomsSlider: FC<Props> = ({ title, loading, isPrimaryButtonShown, rooms = [] }) => {
   const [activeArrowLeft, setActiveArrowLeft] = useState(false);
   const [activeArrowRight, setActiveArrowRight] = useState(true);
   const slider = useRef<HTMLUListElement>(null);
   const [sliderItemWidth, setSliderItemWidth] = useState(0);
   const [touchPosition, setTouchPosition] = useState<number | null>(null);
   const [lastClickTime, setLastClickTime] = useState(0);
+
+  console.log(rooms);
+
 
   useEffect(() => {
     const handleResize = () => {

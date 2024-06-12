@@ -16,8 +16,7 @@ import { motion } from 'framer-motion';
 import { titleVariants } from 'utils/titleVariants';
 import Cookies from 'js-cookie';
 import { Room } from 'types/Room';
-import { User } from 'types/User';
-import { getOneUser } from 'api';
+import { addBooked, getOneUser } from 'api';
 import { toast } from 'react-toastify';
 import { doDeposit } from 'api';
 
@@ -52,13 +51,14 @@ export const CartPage= () => {
     localStorage.setItem('cart', JSON.stringify(cartRooms));
   }, [cartRooms]);
 
-  const addBookedRooms = (rooms: Room[]) => {
-    setBookedRooms([...bookedRooms, ...rooms]);
-  };
+  const addBookedRooms = async (rooms: Room[]) => {
+    const user = await getOneUser();
 
-  // const removeBookedRooms = (rooms: Room[]) => {
-  //   setBookedRooms(bookedRooms.filter((room) => !rooms.includes(room)));
-  // };
+    addBooked(user.id, rooms)
+      .catch(() => {
+        toast.error('Failed to add booked room');
+      });
+  };
 
   const removeCartRooms = (rooms: Room[]) => {
     setCartRooms(cartRooms.filter((room) => !rooms.includes(room)));

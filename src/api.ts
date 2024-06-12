@@ -4,7 +4,8 @@ import { User } from 'types/User';
 import { toast } from 'react-toastify';
 import Cookies from 'js-cookie';
 
-export const API_URL = 'https://node-hotel-backend.onrender.com';
+// export const API_URL = 'https://node-hotel-backend.onrender.com';
+export const API_URL = 'http://localhost:5005';
 
 export function getRooms(): Promise<Room[]> {
   return fetch(API_URL + '/rooms').then(response => response.json());
@@ -110,3 +111,35 @@ export const doDeposit = async (amount: number) => {
   }
 };
 
+export const addBooked = async (id: number, rooms: Room[]) => {
+  try {
+    const response = await fetch(`${API_URL}/users/${id}/add-booked`, {
+      method: 'PATCH',
+      headers: {
+        "Authorization": `Bearer ${Cookies.get('accessToken')}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ rooms }),
+    });
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    toast.error('Failed to add booked room');
+    throw error;
+  }
+};
+
+export const getBooked = async (id: number) => {
+  const response = await fetch(`${API_URL}/users/${id}/booked`, {
+    method: 'GET',
+    headers: {
+      "Authorization": `Bearer ${Cookies.get('accessToken')}`,
+      'Content-Type': 'application/json',
+    },
+  });
+
+  const data = await response.json();
+
+  return data;
+};
