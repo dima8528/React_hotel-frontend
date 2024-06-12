@@ -40,8 +40,6 @@ export const ProfilePage: FC<Props> = ({ onAccToken }) => {
       const { bookings } = res;
       setBookedRooms([...bookings]);
 
-      console.log('bookedRooms', bookings);
-
       // eslint-disable-next-line @typescript-eslint/no-empty-function
     }).catch(() => { });
   }, [userId]);

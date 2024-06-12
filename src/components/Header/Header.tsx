@@ -1,5 +1,5 @@
 import styles from './header.module.scss';
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 import classNames from 'classnames';
 import { Link, NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -12,7 +12,6 @@ import { ReactComponent as Menus } from 'img/icons/burger-menu.svg';
 import { ReactComponent as Cours } from 'img/icons/list1.svg';
 import { ReactComponent as Auth } from 'img/icons/avatar.svg';
 import { Theme } from 'components/Theme/Theme';
-import Cookies from 'js-cookie';
 
 type Props = {
   accToken: string | null;
@@ -24,13 +23,6 @@ export const Header: FC<Props> = ({ accToken }) => {
 
   const cartItes = useSelector((state: RootState) => state.room.cart);
   const cartCount = cartItes.length;
-  // const [isAuth, setIsAuth] = useState<string | null>(null);
-
-  useEffect(() => {
-    const token = Cookies.get('accessToken') || null;
-    console.log('Token fetched from cookies:', token);
-  }, []);
-
 
   const auth_url = accToken ? '/profile' : '/login';
 

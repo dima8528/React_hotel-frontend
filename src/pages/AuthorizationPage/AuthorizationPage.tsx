@@ -87,11 +87,8 @@ const LoginForm: FC<LoginProps> = ({ onAccToken }) => {
         });
 
         localStorage.setItem('email', email);
-
-        console.log('ok');
       } else {
         toast.error('Invalid login or password. Try again');
-        console.log('not ok');
       }
     } catch (error) {
       toast.error('Network error. Please try again later.');
@@ -152,8 +149,7 @@ const RegisterForm = () => {
       toast.success('Please check your email');
       navigate('/');
     })
-    .catch((err) => {
-      console.log(err);
+    .catch(() => {
       toast.error('The email is already in use');
     });
   };

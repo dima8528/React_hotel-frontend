@@ -31,13 +31,12 @@ export const usePageLogic = (roomType: RoomTypes) => {
           currentPage.toString(),
           type,
         );
-        console.log('roomType', roomType);
+
         if (result) {
           const { rooms, totalCount } = result;
+
           setCurrentRooms(rooms);
           setTotalCount(totalCount);
-        } else {
-          console.log('No data returned from getRoomsByRoomType');
         }
       } catch (error) {
         toast.error('Failed to load rooms');

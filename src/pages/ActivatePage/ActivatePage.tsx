@@ -8,7 +8,6 @@ import { LottieAnimation } from 'components/UI/LottieAnimation';
 
 export const ActivatePage = () => {
   const { token } = useParams();
-  console.log(token);
   const navigate = useNavigate();
 
   fetch(`${API_URL}/activation/${token}`)

@@ -20,9 +20,6 @@ export const RoomsSlider: FC<Props> = ({ title, loading, isPrimaryButtonShown, r
   const [touchPosition, setTouchPosition] = useState<number | null>(null);
   const [lastClickTime, setLastClickTime] = useState(0);
 
-  console.log(rooms);
-
-
   useEffect(() => {
     const handleResize = () => {
       const windowWidth = window.innerWidth;

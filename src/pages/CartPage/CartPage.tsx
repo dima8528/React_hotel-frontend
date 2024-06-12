@@ -28,24 +28,11 @@ export const CartPage= () => {
   const [t] = useTranslation('global');
   const [isAuth, setIsAuth] = useState<string | null>(null);
 
-  // useEffect(() => {
-  //   getOneUser()
-  //     .then((data) => setUser(data));
-  // }, []);
-
-  const [bookedRooms, setBookedRooms] = useState<Room[]>(() => {
-    const savedItems = localStorage.getItem('bookedRooms');
-    return savedItems ? JSON.parse(savedItems) : [];
-  });
-
   const [cartRooms, setCartRooms] = useState<Room[]>(() => {
     const savedItems = localStorage.getItem('cart');
     return savedItems ? JSON.parse(savedItems) : [];
   });
 
-  useEffect(() => {
-    localStorage.setItem('bookedRooms', JSON.stringify(bookedRooms));
-  }, [bookedRooms]);
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cartRooms));
@@ -66,7 +53,7 @@ export const CartPage= () => {
 
   useEffect(() => {
     const token = Cookies.get('accessToken') || null;
-    console.log('Token fetched from cookies:', token);
+
     setIsAuth(token);
   }, []);
 
