@@ -15,7 +15,7 @@ export const RightsPage = () => {
           © [2024]. All materials on this site are protected by
           copyright. Any use without permission of the copyright holder is
           prohibited. All trademarks and logos are the property of their
-          respective owners. For more information, please contact{' '}
+          respective owner. For more information, please contact{' '}
           <Link to="https://github.com/dima8528" className={styles.contacts} target='_blank'>
             the developer
           </Link>

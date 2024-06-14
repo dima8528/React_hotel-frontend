@@ -1,0 +1,141 @@
+@import 'styles/utils/mixins';
+@import 'styles/utils/variables';
+
+.overlay {
+  position: fixed;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -35%;
+  height: 540px;
+
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border: 1px solid var(--secondary-color);
+  border-radius: 10px;
+  transition: $effectDuration;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  background-color: var(--main-bg-color);
+  overflow: auto;
+  outline: none;
+}
+
+.main__text {
+  margin-bottom: 20px;
+
+  font-family: $Mont;
+  font-size: 20px;
+  text-align: center;
+  font-weight: 700;
+  color: var(--primary-color);
+  transition: $effectDuration;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  gap: 16px;
+  // flex-direction: column;
+  padding-inline: 20px;
+
+  @include on-tablet {
+    flex-direction: row;
+    gap: 40px;
+    padding-inline: 35px;
+  }
+}
+
+.button {
+  display: flex;
+  max-width: 200px;
+  min-width: 100px;
+  width: 60%;
+  // margin-bottom: 20px;
+  min-height: 3em;
+
+  font-family: $Mont;
+  font-size: 14px;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  text-decoration: none;
+
+  border-radius: 48px;
+  border: 1px solid var(--secondary-color);
+
+  transition: $effectDuration;
+}
+
+.cancel {
+  background-color: var(--white-color);
+  color: var(--dark);
+  transition: $effectDuration;
+
+  &:hover {
+    box-shadow: 0px 3px 13px 0px var(--btn-hover-shadow);
+    transition: $effectDuration;
+    background-color: var(--white-color);
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-size: 14px;
+  color: var(--primary-color);
+  transition: $effectDuration;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.dropdown {
+  margin-top: 16px;
+}
+
+.input-field {
+  border-radius: 8px;
+  width: 100%;
+}
+
+.confirm {
+  color: #fff;
+  background-color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  transition: $effectDuration;
+
+  &:hover {
+    box-shadow: 0px 3px 13px 0px var(--btn-hover-shadow);
+    transition: $effectDuration;
+    background-color: var(--accent-color);
+  }
+}

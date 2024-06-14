@@ -60,12 +60,6 @@ export const Filter = () => {
     setSearchParams(params.toString());
   };
 
-  // const handleItemsParams = (selectedItemsPerPage: ItemsOnPage) => {
-  //   const params = new URLSearchParams(searchParams);
-  //   params.set('perPage', selectedItemsPerPage);
-  //   setSearchParams(params.toString());
-  // };
-
   const handlePerPageParams = (selectedItemsPerPage: string) => {
     const params = new URLSearchParams(searchParams);
     params.set('perPage', selectedItemsPerPage);
@@ -91,9 +85,9 @@ export const Filter = () => {
         <Dropdown
           options={filterOptions}
           onFilterSelectChange={handleFilterParams}
-          onSortSelectChange={handleSortParams}
-          onItemsSelectChange={handlePerPageParams}
-          isFilterDropdown={true}
+          // onSortSelectChange={handleSortParams}
+          // onItemsSelectChange={handlePerPageParams}
+          // isFilterDropdown={true}
           theme={isDarkTheme}
         />
       </div>
@@ -105,10 +99,10 @@ export const Filter = () => {
 
         <Dropdown
           options={sortOptions}
-          onFilterSelectChange={handleFilterParams}
+          // onFilterSelectChange={handleFilterParams}
           onSortSelectChange={handleSortParams}
-          onItemsSelectChange={handlePerPageParams}
-          isSortDropdown={true}
+          // onItemsSelectChange={handlePerPageParams}
+          // isSortDropdown={true}
           theme={isDarkTheme}
         />
       </div>
@@ -121,10 +115,10 @@ export const Filter = () => {
         <div>
           <Dropdown
             options={itemsPerPageOptions}
-            onFilterSelectChange={handleFilterParams}
-            onSortSelectChange={handlePerPageParams}
+            // onFilterSelectChange={handleFilterParams}
+            // onSortSelectChange={handlePerPageParams}
             onItemsSelectChange={handlePerPageParams}
-            isItemsDropdown={true}
+            // isItemsDropdown={true}
             theme={isDarkTheme}
           />
         </div>

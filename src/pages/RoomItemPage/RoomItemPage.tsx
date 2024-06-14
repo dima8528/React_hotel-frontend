@@ -20,6 +20,7 @@ import { EditButton } from 'components/UI/EditButton';
 import { DeleteButton } from 'components/UI/DeleteButton';
 import { User } from 'types/User';
 import { CartModal } from 'components/CartModal';
+import { EditModal } from 'components/EditModal';
 
 export const RoomItemPage = () => {
   const [t] = useTranslation('global');
@@ -37,6 +38,7 @@ export const RoomItemPage = () => {
   const [isSelectedPhoto, setIsSelectedPhoto] = useState(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [recommendedRooms, setRecommendedRooms] = useState<Room[]>([]);
+  const [showModal, setShowModal] = useState(false);
 
   const [rooms, setRooms] = useState<Room[] | null>(null);
   const cart = useSelector((state: RootState) => state.room.cart);
@@ -147,14 +149,14 @@ export const RoomItemPage = () => {
     event.preventDefault();
 
     if (isRoomInCart) {
-      toast.error('The room has been removed from the booked ones');
+      toast.error('The room has been removed');
 
       dispatch({
         type: 'room/removeFromCart',
         payload: room,
       });
     } else {
-      toast.success('The room has been added to the booked ones');
+      toast.success('The room has been added');
 
       dispatch({
         type: 'room/addToCart',
@@ -321,7 +323,9 @@ export const RoomItemPage = () => {
                   {user && user.role === 'admin' && (
                     <div className={styles['admin-panel-container']}>
                       <div className={styles['admin-panel']}>
-                        <EditButton />
+                        <div onClick={() => setShowModal(true)}>
+                          <EditButton />
+                        </div>
 
                         <div onClick={openModal}>
                           <DeleteButton />
@@ -368,6 +372,14 @@ export const RoomItemPage = () => {
           isOpen={modalIsOpen}
           onClose={closeModal}
           onConfirm={() => handleDeleteRoom(room.id)}
+        />
+      )}
+
+      {room && (
+        <EditModal
+          room={room}
+          isOpen={showModal}
+          onClose={() => setShowModal(false)}
         />
       )}
     </div>

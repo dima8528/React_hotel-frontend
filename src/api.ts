@@ -144,6 +144,21 @@ export const getBooked = async (id: number) => {
   return data;
 };
 
+export const updateRoom = async (id: number, roomData: any) => {
+  try {
+    await fetch(`${API_URL}/rooms/${id}`, {
+      method: 'PATCH',
+      headers: {
+        "Authorization": `Bearer ${Cookies.get('accessToken')}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(roomData),
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const deleteRoom = async (id: number) => {
   try {
     const response = await fetch(`${API_URL}/rooms/${id}`, {

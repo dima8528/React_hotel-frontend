@@ -4,21 +4,18 @@ import { SortBy } from 'components/Filter';
 import { FilterBy } from 'components/Filter';
 import { ItemsOnPage } from 'components/Filter';
 import { useSearchParams } from 'react-router-dom';
-
-interface Option {
-  value: number | string;
-  label: string;
-}
+import { Option } from 'types/Option';
 
 interface DropdownProps {
   options: Option[];
-  onSortSelectChange: (selectedOption: SortBy) => void;
-  onFilterSelectChange: (selectedOption: FilterBy) => void;
-  onItemsSelectChange: (selectedOption: ItemsOnPage) => void;
-  isSortDropdown?: boolean;
-  isFilterDropdown?: boolean;
-  isItemsDropdown?: boolean;
+  onSortSelectChange?: (selectedOption: SortBy) => void;
+  onFilterSelectChange?: (selectedOption: FilterBy) => void;
+  onItemsSelectChange?: (selectedOption: ItemsOnPage) => void;
+  // isSortDropdown?: boolean;
+  // isFilterDropdown?: boolean;
+  // isItemsDropdown?: boolean;
   theme: boolean;
+  defaultValue?: Option;
 }
 
 interface CustomStylesProps {
@@ -123,18 +120,19 @@ export const Dropdown: FC<DropdownProps> = ({
   onSortSelectChange,
   onFilterSelectChange,
   onItemsSelectChange,
-  isSortDropdown,
-  isFilterDropdown,
-  isItemsDropdown,
+  // isSortDropdown,
+  // isFilterDropdown,
+  // isItemsDropdown,
   theme,
+  defaultValue,
 }) => {
   const handleChange = (selectedOption: Option | null) => {
     if (selectedOption) {
-      if (isSortDropdown && isInstanceOf(selectedOption.value as string, SortBy)) {
+      if (onSortSelectChange && isInstanceOf(selectedOption.value as string, SortBy)) {
         onSortSelectChange(selectedOption.value as SortBy);
-      } else if (isFilterDropdown && isInstanceOf(selectedOption.value as string, FilterBy)) {
+      } else if (onFilterSelectChange && isInstanceOf(selectedOption.value as string, FilterBy)) {
         onFilterSelectChange(selectedOption.value as FilterBy);
-      } else if (isItemsDropdown && isInstanceOf(selectedOption.value.toString(), ItemsOnPage)) {
+      } else if (onItemsSelectChange && isInstanceOf(selectedOption.value.toString(), ItemsOnPage)) {
         onItemsSelectChange(selectedOption.value as ItemsOnPage);
       }
     }
@@ -147,7 +145,11 @@ export const Dropdown: FC<DropdownProps> = ({
   const perPageParam = params.get('perPage');
 
   const getSelectedValue = (options: Option[]) => {
-    if (isSortDropdown) {
+    if (defaultValue) {
+      return defaultValue;
+    }
+
+    if (onSortSelectChange) {
       if (!sortByParam) {
         return options[0];
       }
@@ -155,7 +157,7 @@ export const Dropdown: FC<DropdownProps> = ({
       return options.find(option => option.value === sortByParam) || options[0];
     }
 
-    if (isFilterDropdown) {
+    if (onFilterSelectChange) {
       if (!filterByClassParam) {
         return options[0];
       }
@@ -163,7 +165,7 @@ export const Dropdown: FC<DropdownProps> = ({
       return options.find(option => option.value === filterByClassParam) || options[0];
     }
 
-    if (isItemsDropdown) {
+    if (onItemsSelectChange) {
       if (!perPageParam) {
         return options[0];
       }
@@ -182,7 +184,7 @@ export const Dropdown: FC<DropdownProps> = ({
         defaultValue={getSelectedValue(options)}
         options={options}
         styles={
-          isSortDropdown && isWideScreen
+          isWideScreen
             ? getCustomStyles(theme)
             : getDefaultStyles(theme)
         }
