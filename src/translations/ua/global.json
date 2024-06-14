@@ -55,7 +55,8 @@
     "Available colors": "Доступні кольори",
     "Select capacity": "Оберіть значення",
     "About": "Про номер",
-    "Specifications": "Характеристики"
+    "Specifications": "Характеристики",
+    "Confirm text": "Ви впевнені, що хочете видалити цей номер?"
   },
   "roomTypes": {
     "Class": "Клас",

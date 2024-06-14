@@ -4,7 +4,7 @@ import { RootState } from 'store/store';
 import styles from './cartPage.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useScrollToTopEffect } from 'utils';
 import { CartModal } from 'components/CartModal';
 import { CartItem } from 'components/CartIem';
@@ -33,6 +33,7 @@ export const CartPage= () => {
     return savedItems ? JSON.parse(savedItems) : [];
   });
 
+  const navigate = useNavigate();
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cartRooms));
@@ -41,10 +42,12 @@ export const CartPage= () => {
   const addBookedRooms = async (rooms: Room[]) => {
     const user = await getOneUser();
 
-    addBooked(user.id, rooms)
+    if (user) {
+      addBooked(user.id, rooms)
       .catch(() => {
         toast.error('Failed to add booked room');
       });
+    }
   };
 
   const removeCartRooms = (rooms: Room[]) => {
@@ -149,7 +152,12 @@ export const CartPage= () => {
         </div>
       )}
 
-      <CartModal isOpen={modalIsOpen} onClose={closeModal} />
+      <CartModal
+        text={t('booking-list.You are not authorized yet. Do you want to login or create an acount?')}
+        isOpen={modalIsOpen}
+        onClose={closeModal}
+        onConfirm={() => navigate('/login')}
+      />
     </div>
   );
 };

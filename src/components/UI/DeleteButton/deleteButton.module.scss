@@ -1,0 +1,21 @@
+@import 'styles/utils/variables';
+@import 'styles/utils/mixins';
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 48px;
+  background-color: var(--aut-btn-bg-color);
+  transition: $effectDuration;
+  cursor: pointer;
+  width: 63px;
+  height: 40px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+
+  fill: #fff;
+}

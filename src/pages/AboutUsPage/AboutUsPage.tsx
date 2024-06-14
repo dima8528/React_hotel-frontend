@@ -143,7 +143,7 @@ export const AboutUsPage = () => {
 
           <div className={styles.address}>
             <span>{t('about.Address')}</span>
-            <Link to="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10062.653799649357!2d34.82130746395399!3d50.911443126379645!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x412902193a4fcf87%3A0xa068fce52ec4ba04!2sZdybanka%20Hotel!5e0!3m2!1sen!2sua!4v1718361136295!5m2!1sen!2sua">{t('about.Address value')}</Link>
+            <Link to="https://www.google.com/maps/place/Zdybanka+Hotel/@50.911433,34.819192,14z/data=!4m9!3m8!1s0x412902193a4fcf87:0xa068fce52ec4ba04!5m2!4m1!1i2!8m2!3d50.9114333!4d34.8191917!16s%2Fg%2F113k5bgw_?hl=en&entry=ttu" target='_blank'>{t('about.Address value')}</Link>
           </div>
         </div>
 

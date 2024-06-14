@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { RoomButtonType } from 'types/RoomButtonType';
 import { Room } from 'types/Room';
 import { useScrollToTopEffect } from 'utils';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'store/store';
@@ -15,16 +15,22 @@ import { ButtonPrimary } from 'components/UI/ButtonPrimary';
 import { RoomsSlider } from 'components/RoomsSlider';
 import { getImageUrl } from 'utils/urlUtils';
 import Skeleton from 'react-loading-skeleton';
-import { getBestRooms, getOneRoom, getRooms } from 'api';
+import { deleteRoom, getBestRooms, getOneRoom, getOneUser, getRooms } from 'api';
+import { EditButton } from 'components/UI/EditButton';
+import { DeleteButton } from 'components/UI/DeleteButton';
+import { User } from 'types/User';
+import { CartModal } from 'components/CartModal';
 
 export const RoomItemPage = () => {
   const [t] = useTranslation('global');
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const dispatch = useDispatch();
   useScrollToTopEffect();
 
   const { roomId } = useParams<{ roomId: string }>();
   const [room, setRoom] = useState<Room | null>(null);
   const [loader, setLoader] = useState(true);
+  const [user, setUser] = useState<User | null>(null);
 
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -34,6 +40,21 @@ export const RoomItemPage = () => {
 
   const [rooms, setRooms] = useState<Room[] | null>(null);
   const cart = useSelector((state: RootState) => state.room.cart);
+
+  const navigate = useNavigate();
+
+  const getUser = async () => {
+    const user = await getOneUser();
+
+    return user;
+  };
+
+  useEffect(() => {
+    getUser()
+      .then((user) => setUser(user))
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      .catch(() => {});
+  }, []);
 
     const roomTypes: { [key: number]: string } = {
       1: 'Standard',
@@ -140,6 +161,20 @@ export const RoomItemPage = () => {
         payload: room,
       });
     }
+  };
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
+  const  handleDeleteRoom = (roomId: number) => {
+    deleteRoom(roomId);
+    toast.success('The room has been deleted');
+    navigate('/rooms');
   };
 
   return (
@@ -280,9 +315,20 @@ export const RoomItemPage = () => {
                       />
 
                       <div className={styles.room__info__price_gap}></div>
-
                     </div>
                   </div>
+
+                  {user && user.role === 'admin' && (
+                    <div className={styles['admin-panel-container']}>
+                      <div className={styles['admin-panel']}>
+                        <EditButton />
+
+                        <div onClick={openModal}>
+                          <DeleteButton />
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -314,6 +360,15 @@ export const RoomItemPage = () => {
             </div>
           )}
         </>
+      )}
+
+      {room && (
+        <CartModal
+          text={t('roomPage.Confirm text')}
+          isOpen={modalIsOpen}
+          onClose={closeModal}
+          onConfirm={() => handleDeleteRoom(room.id)}
+        />
       )}
     </div>
   );

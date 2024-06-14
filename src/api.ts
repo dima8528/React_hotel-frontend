@@ -62,7 +62,7 @@ export async function getRoomsByRoomType(
   }
 }
 
-export const getOneUser = async (): Promise<User> => {
+export const getOneUser = async (): Promise<User | null> => {
   try {
     const email = localStorage.getItem('email');
 
@@ -75,15 +75,15 @@ export const getOneUser = async (): Promise<User> => {
       body: JSON.stringify({ email }),
     });
 
-    if (!response.ok) {
-      throw new Error('Failed to fetch user');
-    }
+    // if (!response.ok) {
+    //   throw new Error('Failed to fetch user');
+    // }
 
     const data = await response.json();
     return data;
-  } catch (error) {
-    toast.error('Failed to fetch user');
-    throw error;
+  } catch {
+    // toast.error('Failed to fetch user');
+    return null;
   }
 };
 
@@ -142,4 +142,26 @@ export const getBooked = async (id: number) => {
   const data = await response.json();
 
   return data;
+};
+
+export const deleteRoom = async (id: number) => {
+  try {
+    const response = await fetch(`${API_URL}/rooms/${id}`, {
+      method: 'DELETE',
+      headers: {
+        "Authorization": `Bearer ${Cookies.get('accessToken')}`,
+        'Content-Type': 'application/json',
+      },
+    });
+    console.log(response);
+
+    if (!response.ok) {
+      console.log('Failed to delete room');
+    }
+
+    return;
+  } catch (error) {
+    toast.error('Failed to delete room');
+    throw error;
+  }
 };
