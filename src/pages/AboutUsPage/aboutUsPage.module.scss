@@ -1,0 +1,53 @@
+@import 'styles/utils/mixins';
+@import 'styles/utils/variables';
+
+.h1_container {
+  text-align: center;
+  margin: 48px 17px 24px;
+
+  @include on-tablet {
+    margin: 48px 24px 24px;
+  }
+
+  @include on-desktop {
+    margin: 48px 32px 24px;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+}
+
+.h1 {
+  justify-self: center;
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--primary-color);
+  transition: $effectDuration;
+
+  @include on-tablet {
+    font-size: 24px;
+  }
+}
+
+.element {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.title {
+  color: var(--primary-color);
+  transition: $effectDuration;
+}
+
+.paragraph {
+  // padding-top: 120px;
+  // color: var(--primary-color);
+  color: var(--secondary-color);
+  transition: $effectDuration;
+}

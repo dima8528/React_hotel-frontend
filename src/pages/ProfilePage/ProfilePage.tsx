@@ -10,6 +10,7 @@ import { doDeposit } from 'api';
 import { toast } from 'react-toastify';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
+import { useScrollToTopEffect } from 'utils';
 
 type Props = {
   onAccToken: Dispatch<SetStateAction<string | null>>;
@@ -43,6 +44,8 @@ export const ProfilePage: FC<Props> = ({ onAccToken }) => {
       // eslint-disable-next-line @typescript-eslint/no-empty-function
     }).catch(() => { });
   }, [userId]);
+
+  useScrollToTopEffect();
 
   const handleDeposit = async (amount: number) => {
     const newBalance = await doDeposit(amount);

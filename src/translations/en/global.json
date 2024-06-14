@@ -91,6 +91,25 @@
     "Added to booked": "Added to booked",
     "Checkout": "Checkout"
   },
+  "about": {
+    "About Us": "About Us",
+    "title_1": "A Legacy of Elegance and Excellence",
+    "text_1": "Welcome to Admin Hotel, where luxury meets history. Nestled in the heart of the city, Admin Hotel has been a beacon of elegance and sophistication since its inception in 1924. Our storied past is a testament to our commitment to providing unparalleled hospitality and timeless charm.",
+    "title_2": "Our Beginnings",
+    "text_2": "Admin Hotel was founded by visionary entrepreneur Charles Davenport. With a passion for hospitality and an eye for detail, Davenport transformed a modest building into a grand establishment that quickly became the talk of the town. The hotel’s opulent architecture, inspired by the Art Deco movement, captivated guests and set a new standard for luxury accommodation.",
+    "title_3": "The Golden Era",
+    "text_3": "Throughout the 1930s and 1940s, Admin Hotel thrived as a hub of social and cultural activity. It was a favorite among Hollywood stars, dignitaries, and world travelers. The hotel&apos;s elegant ballroom hosted countless glamorous events, from high-society weddings to charitable galas. Our staff, renowned for their impeccable service, made every guest feel like royalty.",
+    "title_4": "A Commitment to Innovation",
+    "text_4": "In the 1960s, Admin Hotel underwent a significant renovation to incorporate modern amenities while preserving its historic charm. This period saw the introduction of our rooftop garden, offering breathtaking views of the city skyline, and the launch of our award-winning fine dining restaurant, The Davenport Room. These innovations ensured that Admin Hotel remained at the forefront of luxury hospitality.",
+    "title_5": "Embracing the Future",
+    "text_5": "Today, Admin Hotel continues to honor its rich heritage while embracing the future. We have integrated sustainable practices throughout our operations, ensuring that our guests can enjoy a luxurious stay that is also environmentally responsible. Our rooms and suites are equipped with the latest technology, providing a seamless blend of classic elegance and modern convenience.",
+    "title_6": "Our Philosophy",
+    "text_6": "At Admin Hotel, we believe that true luxury lies in the details. From the moment you step through our doors, you will be enveloped in an atmosphere of warmth and refinement. Our dedicated team is committed to making your stay unforgettable, whether you are here for business, leisure, or a special occasion.",
+    "title_7": "Join Us",
+    "text_7": "We invite you to become part of the Admin Hotel story. Experience the legacy of a landmark institution that has been setting the standard for luxury hospitality for over a century. Whether you are a returning guest or visiting us for the first time, we look forward to welcoming you to our home.",
+    "text_8": "Welcome to Admin Hotel – where history, elegance, and modern luxury converge.",
+    "Contacts": "Contacts"
+  },
   "profile": {
     "deposit": "Deposit",
     "balance": "Balance",

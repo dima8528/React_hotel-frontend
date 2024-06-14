@@ -18,7 +18,7 @@ export const NavBar = ({ onClose }: { onClose: () => void }) => {
   return (
     <aside className={styles.menu}>
       <div className={styles.menu__top}>
-        <Link to="/" className={styles.menu__logo}>
+        <Link to="/" className={styles.menu__logo} onClick={onClose}>
           <Logo className={`${styles.menu__logo} ${styles.logo}`} />
         </Link>
 

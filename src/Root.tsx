@@ -17,6 +17,7 @@ import { ActivatePage } from 'pages/ActivatePage';
 import { ProfilePage } from 'pages/ProfilePage';
 import { useState } from 'react';
 import Cookies from 'js-cookie';
+import { AboutUsPage } from 'pages/AboutUsPage';
 
 export const Root = () => {
   const [accToken, setAccToken] = useState<string | null>(Cookies.get('accessToken') || null);
@@ -28,8 +29,9 @@ export const Root = () => {
           <Route index element={<HomePage />} />
           <Route path="/home" element={<Navigate to="/" replace />} />
 
-          <Route path="/rooms" element={<RoomsPage />}></Route>
-          <Route path="/rooms/:roomId" element={<RoomItemPage />}></Route>
+          <Route path="/rooms" element={<RoomsPage />} />
+          <Route path="/rooms/:roomId" element={<RoomItemPage />} />
+          <Route path="/about-us" element={<AboutUsPage />} />
 
           <Route path="/profile" element={<ProfilePage onAccToken={setAccToken}/>} />
           <Route path="/booking-list" element={<CartPage />} />
