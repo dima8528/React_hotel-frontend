@@ -10,7 +10,6 @@ import { NotFoundPage } from './pages/NotFoundPage';
 import { RoomsPage } from './pages/RoomsPage';
 import { CartPage } from './pages/CartPage';
 import { RoomItemPage } from './pages/RoomItemPage';
-import { ContactsPage } from './pages/ContactsPage';
 import { RightsPage } from 'pages/RightsPage';
 import { AuthorizationPage } from 'pages/AuthorizationPage';
 import { ActivatePage } from 'pages/ActivatePage';
@@ -38,7 +37,6 @@ export const Root = () => {
 
           <Route path="/activate/:token" element={<ActivatePage />} />
 
-          <Route path="/contacts" element={<ContactsPage />} />
           <Route path="/rights" element={<RightsPage />}/>
 
           <Route path='/login' element={<AuthorizationPage selectLogin={true} onAccToken={setAccToken} />}/>

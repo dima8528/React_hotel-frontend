@@ -11,8 +11,10 @@ export const Footer = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  const handleScrollToTop = () => {
-    window.scrollTo({ top: 0 });
+  const handleScrollToContacts = () => {
+    setTimeout(() => {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }, 100);
   }
 
   return (
@@ -34,7 +36,7 @@ export const Footer = () => {
           </li>
 
           <li className={styles.footer__item}>
-            <Link to="/contacts" className={styles.footer__link} onClick={handleScrollToTop}>{t('footer.Contacts')}</Link>
+            <Link to="/about-us" className={styles.footer__link} onClick={handleScrollToContacts}>{t('footer.Contacts')}</Link>
           </li>
 
           <li className={styles.footer__item}>
