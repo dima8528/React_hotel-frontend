@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/React_hotel-frontend/static/css/main.a8f4ebe2.css",
-    "main.js": "/React_hotel-frontend/static/js/main.2b178f57.js",
+    "main.css": "/React_hotel-frontend/static/css/main.46fe62d6.css",
+    "main.js": "/React_hotel-frontend/static/js/main.d7c68148.js",
     "static/media/Premium.jpg": "/React_hotel-frontend/static/media/Premium.471ca87c730970d31ae0.jpg",
     "static/media/1.jpg": "/React_hotel-frontend/static/media/1.4f55925af1271f86f6aa.jpg",
     "static/media/3.jpg": "/React_hotel-frontend/static/media/3.a592a7fa45e5bc7db859.jpg",
@@ -16,9 +16,11 @@
     "static/media/unlock.svg": "/React_hotel-frontend/static/media/unlock.e071f886e26fe081ed4802820d8e3e78.svg",
     "static/media/lock.svg": "/React_hotel-frontend/static/media/lock.d521cbd9375876c58dc3e321f1564f8f.svg",
     "static/media/Home.svg": "/React_hotel-frontend/static/media/Home.9a24a70540404ccecd05.svg",
+    "static/media/edit.svg": "/React_hotel-frontend/static/media/edit.1a1a21939a57a8c76f4fc04620f727d6.svg",
     "static/media/close.svg": "/React_hotel-frontend/static/media/close.84225b0c41609ce59c2bbbdf70ec0958.svg",
     "static/media/list1.svg": "/React_hotel-frontend/static/media/list1.b278c9fb8e8ac4ad376d18d1f2f1c25b.svg",
     "static/media/plus.svg": "/React_hotel-frontend/static/media/plus.dea157243cc9d361ac05.svg",
+    "static/media/delete.svg": "/React_hotel-frontend/static/media/delete.dd4f838054c786574968fd06d8b295c4.svg",
     "index.html": "/React_hotel-frontend/index.html",
     "static/media/arrows_right.svg": "/React_hotel-frontend/static/media/arrows_right.becf9c928cb127ddb616.svg",
     "static/media/arrow_left.svg": "/React_hotel-frontend/static/media/arrow_left.8e0d6b081d635225fe03.svg",
@@ -29,11 +31,11 @@
     "static/media/avatar.svg": "/React_hotel-frontend/static/media/avatar.92234cee24af14d83be3570ed9fdf639.svg",
     "static/media/burger-menu.svg": "/React_hotel-frontend/static/media/burger-menu.775e63223e2107f925cce51586096dbc.svg",
     "static/media/ua.webp": "/React_hotel-frontend/static/media/ua.13e7e677a20759758435.webp",
-    "main.a8f4ebe2.css.map": "/React_hotel-frontend/static/css/main.a8f4ebe2.css.map",
-    "main.2b178f57.js.map": "/React_hotel-frontend/static/js/main.2b178f57.js.map"
+    "main.46fe62d6.css.map": "/React_hotel-frontend/static/css/main.46fe62d6.css.map",
+    "main.d7c68148.js.map": "/React_hotel-frontend/static/js/main.d7c68148.js.map"
   },
   "entrypoints": [
-    "static/css/main.a8f4ebe2.css",
-    "static/js/main.2b178f57.js"
+    "static/css/main.46fe62d6.css",
+    "static/js/main.d7c68148.js"
   ]
 }
