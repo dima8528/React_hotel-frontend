@@ -50,12 +50,14 @@ input {
   background-color: var(--aut-input-bg-color);
   transition: $effectDuration;
   color: var(--primary-color);
+  border-radius: 4px;
 }
 
 button {
   padding: 10px;
   background-color: var(--aut-btn-bg-color);
   transition: $effectDuration;
+  border-radius: 4px;
   color: white;
   border: none;
   cursor: pointer;
@@ -91,6 +93,7 @@ button:hover {
   transition:
     background-color 0.3s,
     color 0.3s;
+  border-radius: 4px;
 }
 
 .switchButton:hover {

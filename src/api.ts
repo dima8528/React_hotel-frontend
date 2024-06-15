@@ -4,8 +4,7 @@ import { User } from 'types/User';
 import { toast } from 'react-toastify';
 import Cookies from 'js-cookie';
 
-// export const API_URL = 'https://node-hotel-backend.onrender.com';
-export const API_URL = 'http://localhost:5005';
+export const API_URL = 'https://node-hotel-backend.onrender.com';
 
 export function getRooms(): Promise<Room[]> {
   return fetch(API_URL + '/rooms').then(response => response.json());
@@ -46,7 +45,6 @@ export async function getRoomsByRoomType(
   page: string,
   type: string,
 ): Promise<{ rooms: Room[]; totalCount: number; totalPages: number }> {
-  // &type=${type}
   try {
     const response = await fetch(
       `${API_URL}/rooms/type/${roomType}?sortBy=${sortBy}&perPage=${perPage}&page=${page}&type=${type}`,
@@ -75,14 +73,9 @@ export const getOneUser = async (): Promise<User | null> => {
       body: JSON.stringify({ email }),
     });
 
-    // if (!response.ok) {
-    //   throw new Error('Failed to fetch user');
-    // }
-
     const data = await response.json();
     return data;
   } catch {
-    // toast.error('Failed to fetch user');
     return null;
   }
 };
