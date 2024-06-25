@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/React_hotel-frontend/static/css/main.7764d834.css",
-    "main.js": "/React_hotel-frontend/static/js/main.ddb88dab.js",
+    "main.css": "/React_hotel-frontend/static/css/main.27000ca3.css",
+    "main.js": "/React_hotel-frontend/static/js/main.c16cf6b5.js",
     "static/media/Premium.jpg": "/React_hotel-frontend/static/media/Premium.471ca87c730970d31ae0.jpg",
     "static/media/1.jpg": "/React_hotel-frontend/static/media/1.4f55925af1271f86f6aa.jpg",
     "static/media/3.jpg": "/React_hotel-frontend/static/media/3.a592a7fa45e5bc7db859.jpg",
@@ -31,11 +31,11 @@
     "static/media/avatar.svg": "/React_hotel-frontend/static/media/avatar.92234cee24af14d83be3570ed9fdf639.svg",
     "static/media/burger-menu.svg": "/React_hotel-frontend/static/media/burger-menu.775e63223e2107f925cce51586096dbc.svg",
     "static/media/ua.webp": "/React_hotel-frontend/static/media/ua.13e7e677a20759758435.webp",
-    "main.7764d834.css.map": "/React_hotel-frontend/static/css/main.7764d834.css.map",
-    "main.ddb88dab.js.map": "/React_hotel-frontend/static/js/main.ddb88dab.js.map"
+    "main.27000ca3.css.map": "/React_hotel-frontend/static/css/main.27000ca3.css.map",
+    "main.c16cf6b5.js.map": "/React_hotel-frontend/static/js/main.c16cf6b5.js.map"
   },
   "entrypoints": [
-    "static/css/main.7764d834.css",
-    "static/js/main.ddb88dab.js"
+    "static/css/main.27000ca3.css",
+    "static/js/main.c16cf6b5.js"
   ]
 }
