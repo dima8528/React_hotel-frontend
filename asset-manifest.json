@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/React_hotel-frontend/static/css/main.7764d834.css",
-    "main.js": "/React_hotel-frontend/static/js/main.301dec03.js",
+    "main.js": "/React_hotel-frontend/static/js/main.ddb88dab.js",
     "static/media/Premium.jpg": "/React_hotel-frontend/static/media/Premium.471ca87c730970d31ae0.jpg",
     "static/media/1.jpg": "/React_hotel-frontend/static/media/1.4f55925af1271f86f6aa.jpg",
     "static/media/3.jpg": "/React_hotel-frontend/static/media/3.a592a7fa45e5bc7db859.jpg",
@@ -32,10 +32,10 @@
     "static/media/burger-menu.svg": "/React_hotel-frontend/static/media/burger-menu.775e63223e2107f925cce51586096dbc.svg",
     "static/media/ua.webp": "/React_hotel-frontend/static/media/ua.13e7e677a20759758435.webp",
     "main.7764d834.css.map": "/React_hotel-frontend/static/css/main.7764d834.css.map",
-    "main.301dec03.js.map": "/React_hotel-frontend/static/js/main.301dec03.js.map"
+    "main.ddb88dab.js.map": "/React_hotel-frontend/static/js/main.ddb88dab.js.map"
   },
   "entrypoints": [
     "static/css/main.7764d834.css",
-    "static/js/main.301dec03.js"
+    "static/js/main.ddb88dab.js"
   ]
 }
