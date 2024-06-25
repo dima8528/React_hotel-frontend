@@ -204,10 +204,11 @@ export const RoomItemPage = () => {
           </div>
 
           <div className={styles.smallDescriptionSkeletons}>
-            <Skeleton className={styles.smallTextSkeletons} count={2} />
+            <Skeleton height={33} className={styles.smallTextSkeletons} /* count={2} */ />
 
-            <Skeleton className={styles.smallPriceSkeletons} />
-            <Skeleton className={styles.smallTextSkeletons} />
+            <Skeleton className={styles.smallPriceSkeletons} height={24} count={5}/>
+
+            <Skeleton height={44} style={{ marginBottom: 60 }} width="100%" />
           </div>
 
           <div className={styles.textSkeleton}>

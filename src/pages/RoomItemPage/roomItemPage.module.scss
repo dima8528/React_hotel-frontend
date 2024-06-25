@@ -548,15 +548,9 @@
 }
 
 .smallTextSkeletons {
-  margin-bottom: 48px;
+  margin-bottom: 24px;
   width: 100%;
   height: 40px;
-}
-
-.smallPriceSkeletons {
-  margin-bottom: 16px;
-  width: 40%;
-  height: 50px;
 }
 
 .nights {
@@ -617,4 +611,10 @@
     width: 100%;
     height: 100%;
   }
+}
+
+.smallPriceSkeletons {
+  width: 100%;
+  grid-column: 1 / -1;
+  margin-bottom: 6px;
 }
