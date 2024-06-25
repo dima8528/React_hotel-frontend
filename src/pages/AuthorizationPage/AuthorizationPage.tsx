@@ -27,6 +27,22 @@ type LoginProps = {
 //   onAccToken: Dispatch<SetStateAction<string | null>>;
 // }
 
+const validateLogin = (email: string, password: string) => {
+  if (!email.includes('@')) {
+    toast.error('Please enter a valid email address');
+
+    return false;
+  }
+
+  if (password.length < 6) {
+    toast.error('Password must be at least 6 characters long');
+
+    return false;
+  }
+
+  return true;
+}
+
 const PasswordInput: React.FC<PasswordInputProps> = ({ placeholder, value, onChange }) => {
   const [showPassword, setShowPassword] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -64,6 +80,18 @@ const LoginForm: FC<LoginProps> = ({ onAccToken }) => {
 
   const handleLoginSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const isOk = validateLogin(email, password);
+
+    if (!email || !password) {
+      toast.error('Please fill in all fields');
+
+      return;
+    }
+
+    if (!isOk) {
+      return;
+    };
 
     try {
       const response = await fetch(`${API_URL}/login`, {
@@ -133,6 +161,17 @@ const RegisterForm = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const isOk = validateLogin(email, password);
+
+    if (!isOk) {
+      return;
+    };
+
+    if (!firstName || !lastName || !email || !password || !confirmPassword) {
+      toast.error('Please fill in all fields');
+    }
+
     if (password !== confirmPassword) {
       toast.error('Passwords do not match');
       return;
@@ -145,9 +184,16 @@ const RegisterForm = () => {
       },
       body: JSON.stringify({ firstName, lastName, email, password }),
     })
-    .then(() => {
+    .then(response => {
+      if (!response.ok) {
+        // toast.error('The email is already in use');
+        throw new Error('The email is already in use');
+      }
+
       toast.success('Please check your email');
       navigate('/');
+
+      // return response.json();
     })
     .catch(() => {
       toast.error('The email is already in use');
@@ -155,7 +201,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} noValidate>
       <h2 className={styles.title}>Sign up</h2>
 
       <div className={styles.nameFields}>
